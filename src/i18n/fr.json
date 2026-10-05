@@ -29,5 +29,39 @@
       "👋 Un projet en tête ? Discutons-en !",
       "🚀 Prêt à attirer plus de clients ?"
     ]
+  },
+  "services": {
+    "sectionTitle": "Ce que j'apporte à votre entreprise",
+    "sectionSubtitle": "Trois approches sur mesure pour propulser votre business.",
+    "sectionDescription": "Mon objectif va bien au-delà de l'exécution : je m'engage à vous fournir des résultats tangibles et quantifiables.",
+    "items": {
+      "web": {
+        "title": "Création de Sites & Applications",
+        "description": "Donnez à votre entreprise un outil digital taillé pour la performance et la conversion.",
+        "features": [
+          "Design exclusif : Une interface sur mesure qui valorise votre marque.",
+          "Technologie de pointe : Vitesse de chargement maximale, visibilité Google (SEO) et fluidité sur mobile.",
+          "Gestion simplifiée : Intégration d'un CMS et d'un tableau de bord intuitif pour garder le contrôle."
+        ]
+      },
+      "data": {
+        "title": "Gestion & Valorisation des Données",
+        "description": "Structurez et connectez vos systèmes pour transformer vos données en véritables leviers de croissance.",
+        "features": [
+          "Bases de données sur mesure : Une architecture solide, sécurisée et parfaitement optimisée.",
+          "Connectivité maximale : Conception d'API RESTful et intégrations de systèmes complexes sans friction.",
+          "Performance accrue : Un traitement fluide de vos informations pour accélérer vos processus métiers."
+        ]
+      },
+      "strategy": {
+        "title": "Conseil & Stratégie Technique",
+        "description": "Anticipez l'avenir et structurez vos projets grâce à un accompagnement technologique de haut niveau.",
+        "features": [
+          "Audits approfondis : Une analyse claire de vos systèmes existants pour identifier vos leviers d'amélioration.",
+          "Architecture système : La conception d'infrastructures robustes, évolutives et adaptées à vos ambitions.",
+          "Transformation digitale : Un pilotage stratégique pour moderniser vos processus sans perturber votre activité."
+        ]
+      }
+    }
   }
 }

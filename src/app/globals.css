@@ -124,3 +124,38 @@ section[id] {
     animation: none;
   }
 }
+
+
+/* ============================================
+   Spotlight Card — halo lumineux qui suit le curseur
+   ============================================ */
+
+.spotlight-card {
+  position: relative;
+  overflow: hidden; /* empêche le halo de déborder des coins arrondis */
+}
+
+/* 
+  ::before crée une couche invisible par défaut (opacity: 0).
+  Le dégradé radial est centré sur les variables --spotlight-x/-y,
+  mises à jour en JS à chaque mouvement de souris (voir SpotlightCard.tsx).
+  On utilise var(--accent) : le vert, uniquement visible en hover,
+  donc conforme à la règle "vert = petit détail uniquement".
+*/
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    400px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    var(--accent) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none; /* le halo ne doit jamais bloquer les clics */
+}
+
+.spotlight-card:hover::before {
+  opacity: 0.1; /* intensité très légère, subtile */
+}

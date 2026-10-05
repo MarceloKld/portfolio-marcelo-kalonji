@@ -1,9 +1,19 @@
-// Type qui liste les deux langues possibles du site.
-// TypeScript nous empêchera d'écrire autre chose que "fr" ou "en" par erreur.
+import type { LucideIcon } from "lucide-react";
+
 export type Locale = "fr" | "en";
 
-// Structure d'un lien de navigation
 export type NavLink = {
-  key: string;   // La clé de traduction (ex: "home")
-  href: string;  // L'ancre vers laquelle on scroll (ex: "#accueil")
+  key: string;
+  href: string;
+};
+
+// Identifiants uniques de chaque service — doivent correspondre
+// EXACTEMENT aux clés utilisées dans fr.json / en.json (services.items.*)
+export type ServiceId = "web" | "data" | "strategy";
+
+// Les données "structurelles" d'un service (icône) sont séparées
+// du texte (qui vit dans les fichiers de traduction) — voir data/services.ts
+export type ServiceMeta = {
+  id: ServiceId;
+  icon: LucideIcon;
 };

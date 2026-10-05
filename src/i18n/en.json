@@ -29,5 +29,39 @@
       "👋 Got a project in mind? Let's talk!",
       "🚀 Ready to attract more clients?"
     ]
+  },
+  "services": {
+    "sectionTitle": "What I bring to your business",
+    "sectionSubtitle": "Three tailored approaches to grow your business.",
+    "sectionDescription": "My goal goes far beyond execution: I'm committed to delivering tangible, measurable results.",
+    "items": {
+      "web": {
+        "title": "Websites & Application Development",
+        "description": "Give your business a digital tool built for performance and conversion.",
+        "features": [
+          "Exclusive design: A custom interface that showcases your brand.",
+          "Cutting-edge technology: Maximum loading speed, Google visibility (SEO) and a smooth mobile experience.",
+          "Simplified management: CMS integration and an intuitive dashboard to stay in control."
+        ]
+      },
+      "data": {
+        "title": "Data Management & Optimization",
+        "description": "Structure and connect your systems to turn your data into real growth drivers.",
+        "features": [
+          "Custom databases: A solid, secure and fully optimized architecture.",
+          "Maximum connectivity: RESTful API design and frictionless complex system integrations.",
+          "Increased performance: Smooth data processing to speed up your business processes."
+        ]
+      },
+      "strategy": {
+        "title": "Technical Consulting & Strategy",
+        "description": "Anticipate the future and structure your projects with high-level technology guidance.",
+        "features": [
+          "In-depth audits: A clear analysis of your existing systems to identify improvement levers.",
+          "System architecture: Designing robust, scalable infrastructures suited to your ambitions.",
+          "Digital transformation: Strategic guidance to modernize your processes without disrupting your business."
+        ]
+      }
+    }
   }
 }
