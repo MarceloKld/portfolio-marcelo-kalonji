@@ -1,20 +1,50 @@
 @import "tailwindcss";
 
-/* Tes variables de couleurs restent en dessous */
+/* ===========================================
+   VARIABLES CSS — Mode clair (par défaut)
+   =========================================== */
 :root {
-  --background: #ffffff;
-  --foreground: #0a0a0a;
+  --background: #FFFFFF;      /* Fond blanc */
+  --foreground: #0A0A0A;      /* Texte noir */
+  --surface: #F5F5F5;         /* Fond des cartes/sections */
+  --border-color: rgba(0, 0, 0, 0.08); /* Bordures discrètes */
+  --accent: #22C55E;          /* Vert — disponibilité, accents */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ===========================================
+   VARIABLES CSS — Mode sombre
+   Activé quand la balise <html> a la classe "dark"
+   =========================================== */
+.dark {
+  --background: #0A0A0A;      /* Fond noir */
+  --foreground: #FFFFFF;      /* Texte blanc */
+  --surface: #171717;         /* Fond des cartes/sections */
+  --border-color: rgba(255, 255, 255, 0.1); /* Bordures discrètes */
+  --accent: #22C55E;          /* Vert reste identique dans les 2 thèmes */
 }
 
+/* Application des variables aux éléments de base */
 body {
+  background-color: var(--background);
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Transition douce lors du changement de thème */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Empêche tout débordement horizontal sur mobile (demande explicite) */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Classe utilitaire pour l'effet glassmorphism léger demandé */
+.glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.dark .glass {
+  background-color: rgba(10, 10, 10, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
