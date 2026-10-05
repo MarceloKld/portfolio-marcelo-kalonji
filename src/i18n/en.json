@@ -8,5 +8,20 @@
     "about": "About",
     "contact": "Contact",
     "startProject": "Start a project"
+  },
+  "hero": {
+    "badge": "Available for new projects",
+    "title": "Web Designer & Developer",
+    "accrocheBefore": "I design, build and deploy",
+    "rotatingWords": [
+      "digital solutions",
+      "websites",
+      "custom applications",
+      "robust APIs",
+      "databases"
+    ],
+    "accrocheAfter": "that are performant, reliable and scalable. From database modeling to the user interface, I handle the entire lifecycle of your digital projects.",
+    "ctaPrimary": "Start a Project",
+    "ctaSecondary": "View my Work"
   }
 }

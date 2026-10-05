@@ -8,5 +8,20 @@
     "about": "À propos",
     "contact": "Contact",
     "startProject": "Démarrer un projet"
+  },
+  "hero": {
+    "badge": "Disponible pour de nouveaux projets",
+    "title": "Concepteur & Développeur Web",
+    "accrocheBefore": "Je conçois, développe et déploie des",
+    "rotatingWords": [
+      "solutions numériques",
+      "sites web",
+      "applications sur mesure",
+      "API robustes",
+      "bases de données"
+    ],
+    "accrocheAfter": "performantes, fiables et évolutives. De la modélisation des bases de données jusqu'à l'interface utilisateur, j'assure l'intégralité du cycle de vie de vos projets digitaux.",
+    "ctaPrimary": "Démarrer un Projet",
+    "ctaSecondary": "Voir mes Réalisations"
   }
 }
