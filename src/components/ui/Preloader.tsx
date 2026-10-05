@@ -1,76 +1,74 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePreloader } from "@/components/providers/PreloaderProvider";
 
-// Ta signature, affichée lettre par lettre au chargement
 const SIGNATURE = "CRAFTING DIGITAL SOLUTIONS";
 
-/**
- * Écran de chargement affiché au premier accès au site.
- * Déroulement :
- * 1. La signature apparaît lettre par lettre (effet "stagger")
- * 2. Après une pause, l'écran se floute et s'efface en fondu
- * 3. Le composant se retire complètement du DOM (plus aucun impact sur les performances)
- */
 export function Preloader() {
-  const [isVisible, setIsVisible] = useState(true); // le preloader existe-t-il encore dans le DOM ?
-  const [isExiting, setIsExiting] = useState(false); // est-il en train de disparaître ?
+  const [isVisible, setIsVisible] = useState(true);
+  const [isExiting, setIsExiting] = useState(false);
+  const { setLoaded } = usePreloader(); // signal partagé avec le Hero
 
   useEffect(() => {
-    // On bloque le scroll de la page tant que le preloader est visible
     document.body.style.overflow = "hidden";
 
-    // Après 1.8s, on déclenche l'animation de sortie (fondu + flou + zoom)
-    const exitTimer = setTimeout(() => setIsExiting(true), 1800);
+    const exitTimer = setTimeout(() => {
+      setIsExiting(true); // déclenche le glissement du rideau
+      setLoaded();         // déclenche SIMULTANÉMENT l'entrée du Hero
+    }, 2200);
 
-    // Après 2.3s (le temps que le fondu se termine), on retire le composant
-    // du DOM et on réactive le scroll de la page
     const removeTimer = setTimeout(() => {
       setIsVisible(false);
       document.body.style.overflow = "auto";
-    }, 2300);
+    }, 3100); // un peu plus long que la durée de la transition (900ms)
 
-    // Nettoyage : si le composant est démonté avant la fin, on annule les minuteurs
     return () => {
       clearTimeout(exitTimer);
       clearTimeout(removeTimer);
       document.body.style.overflow = "auto";
     };
-  }, []);
+  }, [setLoaded]);
 
-  // Une fois la sortie terminée, on ne rend plus rien du tout (0 coût en performance)
   if (!isVisible) return null;
+
+  const letters = SIGNATURE.split("");
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center bg-[var(--background)] transition-all duration-500 ease-in-out ${
-        isExiting
-          ? "pointer-events-none scale-105 opacity-0 backdrop-blur-2xl"
-          : "opacity-100"
+      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center gap-5 bg-[var(--background)] transition-transform duration-[900ms] ease-[cubic-bezier(0.76,0,0.24,1)] ${
+        isExiting ? "pointer-events-none -translate-y-full" : "translate-y-0"
       }`}
     >
-      {/* Halo flouté en fond, pour une touche moderne */}
       <div className="absolute h-72 w-72 rounded-full bg-[var(--accent)]/10 blur-[100px]" />
 
-      {/* La signature, découpée mot par mot puis lettre par lettre */}
-      <div className="relative flex flex-wrap items-center justify-center gap-x-3 px-6 text-center">
-        {SIGNATURE.split(" ").map((word, wordIndex) => (
-          <span key={word} className="flex">
-            {word.split("").map((letter, letterIndex) => (
-              <span
-                key={letterIndex}
-                // Chaque lettre a un délai croissant : c'est ça qui crée
-                // l'effet "d'écriture progressive" de la signature
-                style={{
-                  animationDelay: `${(wordIndex * 10 + letterIndex) * 35}ms`,
-                }}
-                className="inline-block animate-letterIn text-sm font-bold uppercase tracking-[0.25em] text-[var(--foreground)] opacity-0 sm:text-lg"
-              >
-                {letter}
-              </span>
-            ))}
+      <div
+        style={{ animation: "letter-in 0.6s ease-out forwards" }}
+        className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-[var(--border-color)] text-lg font-bold text-[var(--foreground)] opacity-0"
+      >
+        MK
+      </div>
+
+      <div className="relative flex flex-wrap items-center justify-center px-6 text-center">
+        {letters.map((letter, index) => (
+          <span
+            key={index}
+            style={{
+              animation: "letter-in 0.5s ease-out forwards",
+              animationDelay: `${300 + index * 40}ms`,
+            }}
+            className="inline-block whitespace-pre text-xs font-bold uppercase tracking-[0.3em] text-[var(--foreground)] opacity-0 sm:text-base"
+          >
+            {letter}
           </span>
         ))}
+      </div>
+
+      <div className="relative mt-1 h-[2px] w-40 overflow-hidden rounded-full bg-[var(--border-color)]">
+        <div
+          style={{ animation: "progress-line 2s ease-in-out forwards" }}
+          className="h-full bg-[var(--accent)]"
+        />
       </div>
     </div>
   );

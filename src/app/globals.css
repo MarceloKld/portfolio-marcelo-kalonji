@@ -59,3 +59,29 @@ html {
 section[id] {
   scroll-margin-top: 6rem;
 }
+
+/* ============================================
+   Animations du Preloader — en CSS pur, injectées via l'attribut
+   "style" en ligne dans le composant (pas via les classes Tailwind).
+   Avantage : fonctionne immédiatement, sans dépendre de
+   tailwind.config.ts ni d'un redémarrage du serveur.
+   ============================================ */
+@keyframes letter-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes progress-line {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}

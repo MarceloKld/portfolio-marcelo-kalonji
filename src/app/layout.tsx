@@ -3,8 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
-import { Preloader } from "@/components/ui/Preloader";           // NOUVEAU
-import { WhatsAppButton } from "@/components/ui/WhatsAppButton";  // NOUVEAU
+import { PreloaderProvider } from "@/components/providers/PreloaderProvider"; // NOUVEAU
+import { Preloader } from "@/components/ui/Preloader";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,11 +30,13 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider>
           <LanguageProvider>
-            {/* Le Preloader s'affiche PAR-DESSUS tout au chargement */}
-            <Preloader />
-            {children}
-            {/* Le bouton WhatsApp est global : visible sur toutes les sections */}
-            <WhatsAppButton />
+            {/* PreloaderProvider doit englober À LA FOIS le Preloader
+                ET le contenu de la page, pour qu'ils partagent le même signal */}
+            <PreloaderProvider>
+              <Preloader />
+              {children}
+              <WhatsAppButton />
+            </PreloaderProvider>
           </LanguageProvider>
         </ThemeProvider>
       </body>
