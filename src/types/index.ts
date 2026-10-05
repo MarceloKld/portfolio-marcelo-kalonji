@@ -7,13 +7,20 @@ export type NavLink = {
   href: string;
 };
 
-// Identifiants uniques de chaque service — doivent correspondre
-// EXACTEMENT aux clés utilisées dans fr.json / en.json (services.items.*)
+// === SERVICES (déjà existant) ===
 export type ServiceId = "web" | "data" | "strategy";
 
-// Les données "structurelles" d'un service (icône) sont séparées
-// du texte (qui vit dans les fichiers de traduction) — voir data/services.ts
 export type ServiceMeta = {
   id: ServiceId;
   icon: LucideIcon;
+};
+
+// === EXPÉRIENCE (nouveau) ===
+// Les 3 identifiants doivent correspondre EXACTEMENT aux clés
+// utilisées dans fr.json / en.json sous "experience.items.<id>"
+export type ExperienceId = "kimia" | "unikin" | "vodacom";
+
+export type ExperienceMeta = {
+  id: ExperienceId;
+  icon: LucideIcon; // icône générique représentant le type de mission
 };

@@ -63,5 +63,39 @@
         ]
       }
     }
+  },
+  "experience": {
+    "sectionLabel": "Parcours",
+    "sectionTitle": "Mon expérience sur le terrain",
+    "sectionSubtitle": "Des missions concrètes, du code à la coordination de projets.",
+    "items": {
+      "kimia": {
+        "role": "Développeur Web Freelance (PHP / Laravel)",
+        "company": "KIM.IA (France) / Partenariat Tech Allemagne",
+        "period": "Janvier 2026 – Avril 2026",
+        "missions": [
+          "Conception de la logique métier back-end et architecture de la base de données sous PHP / Laravel et MySQL.",
+          "Développement des API et intégrations pour une application complète de gestion de pharmacies."
+        ]
+      },
+      "unikin": {
+        "role": "Chef de site de déploiement – UNIKIN",
+        "company": "HopeSystems and Finance (RDC)",
+        "period": "2024 – 2025",
+        "missions": [
+          "Coordination globale et gestion de la communication lors de la mise en production des systèmes.",
+          "Collaboration étroite avec les autorités universitaires et les étudiants pour faciliter l'adoption des plateformes Path Academia et Campus RDC."
+        ]
+      },
+      "vodacom": {
+        "role": "Stagiaire Développeur (Billing & IT)",
+        "company": "Vodacom RDC",
+        "period": "Octobre 2023 – Novembre 2023",
+        "missions": [
+          "Intégration au sein de la division Billing Administration & Roaming.",
+          "Participation à la gestion des processus informatiques et à l'optimisation des systèmes de facturation."
+        ]
+      }
+    }
   }
 }
