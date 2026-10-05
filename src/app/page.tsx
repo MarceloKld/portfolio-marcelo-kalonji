@@ -1,13 +1,7 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Navbar />
-      <div className="pt-24 px-4"> {/* pt-24 pour ne pas être caché sous la Navbar */}
-        <Hero />
-      </div>
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <h1 className="text-4xl font-bold">Mon Portfolio</h1>
     </main>
   );
 }
