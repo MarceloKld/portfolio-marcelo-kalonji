@@ -1,22 +1,20 @@
 "use client";
 // Nécessaire : on utilise useState/useEffect + le hook useTheme (interactif)
 
-import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react"; // Icônes SVG, aucune image lourde
+import { useHasMounted } from "@/lib/useHasMounted"; // Notre nouveau hook
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
 
-  // Astuce anti-bug d'hydratation :
-  // next-themes ne connaît le vrai thème qu'une fois le JS chargé côté client.
-  // On attend le "mount" avant d'afficher l'icône pour éviter un décalage visuel.
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  // Remplace l'ancien useState+useEffect : plus aucun warning
+  const hasMounted = useHasMounted();
 
-  if (!mounted) {
-    // Pendant le chargement, on affiche un espace vide de la même taille
-    return <div className="h-9 w-9" />;
+  if (!hasMounted) {
+    // Pendant le chargement initial, on affiche un espace vide
+    // de la même taille pour éviter un "saut" visuel (layout shift)
+    return <div className="h-9 w-9 shrink-0" />;
   }
 
   const isDark = theme === "dark";
