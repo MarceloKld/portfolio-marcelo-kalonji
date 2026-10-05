@@ -85,3 +85,42 @@ section[id] {
     width: 100%;
   }
 }
+
+/* ============================================
+   Marquee — défilement horizontal infini
+   ============================================ */
+
+/* 
+  Le texte se déplace de 0% à -50%. Comme le contenu est dupliqué
+  exactement 2 fois (voir composant Marquee.tsx), le passage de -50%
+  recolle parfaitement avec le début du contenu : la boucle est donc
+  invisible à l'œil, et semble tourner à l'infini sans aucune saccade.
+*/
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  /* --marquee-duration est une variable CSS définie en inline par le composant,
+     ce qui permet de contrôler la vitesse directement depuis les props React */
+  animation: marquee-scroll var(--marquee-duration, 25s) linear infinite;
+}
+
+/* Petite touche UX : pause le défilement si l'utilisateur survole la bande,
+   le temps de lire tranquillement */
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Accessibilité : respecte la préférence système "réduire les animations"
+   (réglage présent sur Windows, macOS, iOS, Android) */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}

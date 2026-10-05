@@ -6,29 +6,31 @@ import { useLanguage } from "@/components/providers/LanguageProvider";
 import { Badge } from "@/components/ui/Badge";
 import { TypewriterText } from "@/components/ui/TypewriterText";
 import { Button } from "@/components/ui/Button";
-import { EntranceReveal } from "@/components/ui/EntranceReveal"; // remplace Reveal pour le Hero
+import { EntranceReveal } from "@/components/ui/EntranceReveal";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { SocialPill } from "@/components/ui/SocialPill";
 import { SOCIAL_LINKS } from "@/data/socials";
-import { useFitText } from "@/lib/useFitText";
+import { Marquee } from "@/components/ui/Marquee";
 
 /* ════════════════════════════════════════════════════════════════
-   🎛️  ZONE DE RÉGLAGES — Nom & Photo
+   🎛️  ZONE DE RÉGLAGES — Marquee du nom & Photo
    ════════════════════════════════════════════════════════════════ */
 
-// Taille MINIMALE du nom (en pixels) — jamais plus petit que ça,
-// même sur le plus petit écran mobile.
-const NAME_MIN_FONT = 30;
+// Vitesse du défilement : plus petit = plus rapide (en secondes pour 1 boucle)
+const MARQUEE_SPEED = 200;
 
-// Taille MAXIMALE du nom (en pixels) — jamais plus grand que ça,
-// même sur un très grand écran. Le hook choisira automatiquement
-// une valeur entre les deux pour remplir parfaitement la largeur.
-const NAME_MAX_FONT = 180;
+// Nombre de répétitions du nom par groupe. Augmente si tu vois un "trou"
+// vide dans la bande sur très grand écran (ultra-wide / 4K).
+const MARQUEE_REPEAT = 5;
 
-// Position du nom depuis le haut du bloc (niveau de la tête)
-const NAME_TOP = "top-0";
+// Taille du texte du nom dans le marquee
+const NAME_FONT_SIZE = "clamp(19rem, 8vw, 6.5rem)";
 
-// Hauteur / largeur de la photo (inchangé, toujours ajustable ici)
+// Position verticale et hauteur de la bande de marquee dans le bloc
+const NAME_BAND_TOP = "top-0";
+const NAME_BAND_HEIGHT = "h-[34%] sm:h-[38%]";
+
+// Taille / position de la photo (inchangé)
 const PHOTO_HEIGHT = "h-[95%] sm:h-[96%]";
 const PHOTO_WIDTH =
   "w-[56%] sm:w-[42%] md:w-[36%] max-w-[280px] sm:max-w-[320px] md:max-w-[360px]";
@@ -39,11 +41,30 @@ const BLOCK_MIN_HEIGHT = "min-h-[260px] sm:min-h-[340px]";
 export function Hero() {
   const { t } = useLanguage();
 
-  // Le hook retourne 2 références à poser dans le JSX, et la taille calculée
-  const { containerRef, textRef, fontSize } = useFitText({
-    minFontSize: NAME_MIN_FONT,
-    maxFontSize: NAME_MAX_FONT,
-  });
+  // Le contenu répété dans le marquee : "Marcelo" (contour) + "Kalonji"
+  // (plein) + un point vert comme séparateur visuel entre chaque répétition
+  const nameItem = (
+    <span className="flex items-center gap-5 px-5 sm:gap-8 sm:px-8">
+      <span
+        className="font-extrabold uppercase leading-none tracking-tighter text-transparent [-webkit-text-stroke:1.3px_var(--foreground)]"
+        style={{ fontSize: NAME_FONT_SIZE }}
+      >
+        Marcelo
+      </span>
+      <span
+        className="font-extrabold uppercase leading-none tracking-tighter text-[var(--foreground)]"
+        style={{ fontSize: NAME_FONT_SIZE }}
+      >
+        Kalonji
+      </span>
+      {/* Petit point vert : séparateur esthétique, cohérent avec la charte
+          "le vert uniquement en petit détail" */}
+      <span
+        aria-hidden="true"
+        className="h-2 w-2 shrink-0 rounded-full bg-[var(--accent)]"
+      />
+    </span>
+  );
 
   return (
     <section
@@ -56,43 +77,32 @@ export function Hero() {
           <Badge>{t.hero.badge}</Badge>
         </EntranceReveal>
 
-        {/* === LIGNE 2 — Nom (auto-adaptatif) + Photo === */}
+        {/* === LIGNE 2 — Marquee du nom + Photo en overlap === */}
         <EntranceReveal delay={150} className={`relative flex-1 ${BLOCK_MIN_HEIGHT}`}>
-          {/* 
-            containerRef posé ICI : c'est la largeur de CE conteneur
-            que le hook utilise comme référence pour calculer la taille
-            du texte. "group" active l'effet hover sur la photo.
-          */}
-          <div ref={containerRef} className="group relative mx-auto h-full w-full">
+          <div className="group relative mx-auto h-full w-full">
             {/* 
-              NOM — fontSize vient maintenant du hook useFitText (calculé
-              en JavaScript), plus d'une estimation en vw. Garantit un
-              texte toujours parfaitement ajusté, sans jamais déborder.
+              Vrai titre SEO, invisible à l'écran (sr-only) mais lu par
+              Google et les lecteurs d'écran. Indispensable maintenant que
+              le marquee affiche un texte répété/décoratif plutôt qu'un
+              <h1> classique.
             */}
-            <h1
-              ref={textRef}
-              className={`pointer-events-none absolute inset-x-0 ${NAME_TOP} select-none whitespace-nowrap text-center font-extrabold uppercase leading-none tracking-tighter`}
-              style={{ fontSize: `${fontSize}px` }}
-            >
-              <span className="text-transparent [-webkit-text-stroke:1.3px_var(--foreground)]">
-                Marcelo&nbsp;
-              </span>
-              <span className="text-[var(--foreground)]">Kalonji</span>
+            <h1 className="sr-only">
+              Marcelo Kalonji Kashala — Concepteur &amp; Développeur Web
             </h1>
 
-            {/* 
-              Halo flouté — s'intensifie légèrement au survol
-              (opacity 10% → 20%) pour accompagner l'animation de la photo
-            */}
+            {/* === BANDE DE MARQUEE === */}
+            <div
+              className={`absolute inset-x-0 z-0 flex items-center ${NAME_BAND_TOP} ${NAME_BAND_HEIGHT}`}
+            >
+              <Marquee speed={MARQUEE_SPEED} repeat={MARQUEE_REPEAT}>
+                {nameItem}
+              </Marquee>
+            </div>
+
+            {/* Halo flouté derrière la photo */}
             <div className="absolute bottom-0 left-1/2 z-[1] h-[60%] w-[50%] max-w-[300px] -translate-x-1/2 rounded-full bg-[var(--accent)]/10 blur-3xl transition-all duration-700 group-hover:bg-[var(--accent)]/20" />
 
-            {/* 
-              PHOTO — ajout de l'animation au survol :
-              - grayscale → couleur (déjà en place)
-              - scale-105 : léger zoom avant
-              - drop-shadow plus marqué : effet de "décollement"
-              cursor-pointer : indique que la zone est interactive
-            */}
+            {/* === PHOTO === */}
             <div
               className={`absolute inset-x-0 bottom-0 z-10 mx-auto cursor-pointer ${PHOTO_HEIGHT} ${PHOTO_WIDTH} [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]`}
             >
