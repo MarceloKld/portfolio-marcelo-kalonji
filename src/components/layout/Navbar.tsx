@@ -39,12 +39,14 @@ export function Navbar() {
           {/* === LIENS DE NAVIGATION (desktop uniquement) === */}
           <nav className="hidden items-center gap-7 lg:flex">
             {NAV_LINKS.map((link) => (
-              <Link
+                            <Link
                 key={link.key}
                 href={link.href}
-                className="text-sm font-medium text-[var(--foreground)]/70 transition-colors hover:text-[var(--foreground)]"
+                className="group relative text-sm font-medium text-[var(--foreground)]/70 transition-colors hover:text-[var(--foreground)]"
               >
                 {t.nav[link.key as keyof typeof t.nav]}
+                {/* Trait qui se dessine de gauche à droite au survol (scaleX) */}
+                <span className="absolute -bottom-1 left-0 h-[1.5px] w-full origin-left scale-x-0 bg-[var(--accent)] transition-transform duration-300 group-hover:scale-x-100" />
               </Link>
             ))}
           </nav>

@@ -48,3 +48,14 @@ html, body {
   background-color: rgba(10, 10, 10, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* Scroll fluide quand on clique sur un lien de navigation (#accueil, #services...) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Empêche la Navbar flottante de cacher le haut de chaque section
+   quand on arrive dessus via un lien d'ancrage */
+section[id] {
+  scroll-margin-top: 6rem;
+}

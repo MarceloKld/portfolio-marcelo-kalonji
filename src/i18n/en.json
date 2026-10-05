@@ -23,5 +23,11 @@
     "accrocheAfter": "that are performant, reliable and scalable. From database modeling to the user interface, I handle the entire lifecycle of your digital projects.",
     "ctaPrimary": "Start a Project",
     "ctaSecondary": "View my Work"
+  },
+  "whatsapp": {
+    "messages": [
+      "👋 Got a project in mind? Let's talk!",
+      "🚀 Ready to attract more clients?"
+    ]
   }
 }

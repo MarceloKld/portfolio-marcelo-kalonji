@@ -41,21 +41,32 @@ const config: Config = {
       },
 
       // Animations CSS natives (légères, sans framer-motion)
-      keyframes: {
-        // Pour le badge "disponible" qui pulse doucement
+            keyframes: {
         "pulse-soft": {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.5" },
         },
-        // Pour les apparitions douces des sections au scroll
         "fade-up": {
           "0%": { opacity: "0", transform: "translateY(12px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        // NOUVEAU : fait clignoter le curseur du typewriter (comme sur un vrai terminal)
+        blink: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
+
+        letterIn: {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
       animation: {
         "pulse-soft": "pulse-soft 2s ease-in-out infinite",
         "fade-up": "fade-up 0.6s ease-out forwards",
+        // NOUVEAU
+        blink: "blink 1s step-end infinite",
+        letterIn: "letterIn 0.5s ease-out forwards",
       },
     },
   },

@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google"; // Police performante, chargée par Next.js
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import { LanguageProvider } from "@/components/providers/LanguageProvider"; //
+import { LanguageProvider } from "@/components/providers/LanguageProvider";
+import { Preloader } from "@/components/ui/Preloader";           // NOUVEAU
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";  // NOUVEAU
 
-// Chargement optimisé de la police (next/font évite le "layout shift")
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans", // relié à tailwind.config.ts
+  variable: "--font-sans",
   display: "swap",
 });
 
-// Métadonnées SEO — essentielles pour le référencement Google
 export const metadata: Metadata = {
   title: "Marcelo Kalonji Kashala — Concepteur & Développeur Web",
   description:
@@ -27,10 +27,14 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased`}>
-        {/* Les Providers s'imbriquent : Theme englobe Language, 
-            l'ordre entre les deux n'a pas d'importance ici */}
         <ThemeProvider>
-          <LanguageProvider>{children}</LanguageProvider>
+          <LanguageProvider>
+            {/* Le Preloader s'affiche PAR-DESSUS tout au chargement */}
+            <Preloader />
+            {children}
+            {/* Le bouton WhatsApp est global : visible sur toutes les sections */}
+            <WhatsAppButton />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
