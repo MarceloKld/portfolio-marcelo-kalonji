@@ -24,7 +24,7 @@ const MARQUEE_SPEED = 200;
 const MARQUEE_REPEAT = 5;
 
 // Taille du texte du nom dans le marquee
-const NAME_FONT_SIZE = "clamp(19rem, 8vw, 6.5rem)";
+const NAME_FONT_SIZE = "clamp(15rem, 8vw, 6.5rem)";
 
 // Position verticale et hauteur de la bande de marquee dans le bloc
 const NAME_BAND_TOP = "top-0";
@@ -36,10 +36,14 @@ const PHOTO_WIDTH =
   "w-[56%] sm:w-[42%] md:w-[36%] max-w-[280px] sm:max-w-[320px] md:max-w-[360px]";
 const BLOCK_MIN_HEIGHT = "min-h-[260px] sm:min-h-[340px]";
 
+// Taille du titre professionnel "Concepteur & Développeur Web"
+// Augmente ces valeurs pour un texte plus grand (ex: "text-base sm:text-lg")
+const TITLE_FONT_SIZE = "text-sm sm:text-xl";
+
 /* ════════════════════════════════════════════════════════════════ */
 
 export function Hero() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
 
   // Le contenu répété dans le marquee : "Marcelo" (contour) + "Kalonji"
   // (plein) + un point vert comme séparateur visuel entre chaque répétition
@@ -124,17 +128,19 @@ export function Hero() {
           className="flex flex-col items-start gap-5 sm:flex-row sm:items-end sm:justify-between"
         >
           <div className="max-w-xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)] sm:text-sm">
-              {t.hero.title}
-            </p>
+           <p className={`${TITLE_FONT_SIZE} font-semibold uppercase tracking-[0.2em] text-[var(--accent)]`}>
+  {t.hero.title}
+</p>
 
             <p className="mt-2 text-sm leading-relaxed text-[var(--foreground)]/70 sm:text-base">
-              {t.hero.accrocheBefore}{" "}
-              <span className="font-semibold text-[var(--foreground)]">
-                <TypewriterText words={t.hero.rotatingWords} />
-              </span>{" "}
-              {t.hero.accrocheAfter}
-            </p>
+  {t.hero.accrocheBefore}{" "}
+  <span className="font-semibold text-[var(--foreground)]">
+    {/* key={locale} : force React à recréer ce composant à zéro
+        à chaque changement de langue, évitant tout blocage d'animation */}
+    <TypewriterText key={locale} words={t.hero.rotatingWords} />
+  </span>{" "}
+  {t.hero.accrocheAfter}
+</p>
 
             <div className="mt-4 flex flex-wrap items-center gap-3">
               <Magnetic strength={0.2}>
