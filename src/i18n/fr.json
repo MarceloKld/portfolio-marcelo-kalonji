@@ -1,0 +1,12 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "projects": "Projets",
+    "experience": "Expérience",
+    "skills": "Compétences",
+    "about": "À propos",
+    "contact": "Contact",
+    "startProject": "Démarrer un projet"
+  }
+}

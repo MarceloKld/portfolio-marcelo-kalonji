@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google"; // Police performante, chargée par Next.js
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { LanguageProvider } from "@/components/providers/LanguageProvider"; //
 
 // Chargement optimisé de la police (next/font évite le "layout shift")
 const inter = Inter({
@@ -24,11 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // suppressHydrationWarning est nécessaire car next-themes modifie le HTML
-    // côté client avant l'hydratation (sinon React affiche un faux avertissement)
     <html lang="fr" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased`}>
-        <ThemeProvider>{children}</ThemeProvider>
+        {/* Les Providers s'imbriquent : Theme englobe Language, 
+            l'ordre entre les deux n'a pas d'importance ici */}
+        <ThemeProvider>
+          <LanguageProvider>{children}</LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

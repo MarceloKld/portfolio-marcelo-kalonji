@@ -1,7 +1,17 @@
+import { Navbar } from "@/components/layout/Navbar";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="text-4xl font-bold">Mon Portfolio</h1>
+    <main>
+      <Navbar />
+
+      {/* Section temporaire pour tester le défilement du scroll de la Navbar.
+          On la remplacera par le vrai Hero à la Phase 3. */}
+      <section id="accueil" className="flex h-[150vh] items-center justify-center">
+        <p className="text-[var(--foreground)]/40">
+          Prochaine étape : Hero Section
+        </p>
+      </section>
     </main>
   );
 }
