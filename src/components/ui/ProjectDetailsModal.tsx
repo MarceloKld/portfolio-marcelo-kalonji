@@ -167,18 +167,27 @@ export function ProjectDetailsModal({ isOpen, onClose, project, content }: Proje
             </div>
           </div>
 
-          {/* Lien démo externe (optionnel — uniquement Jolka) */}
-          {project.demoUrl && (
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 flex items-center justify-center gap-2 rounded-full bg-[var(--foreground)] px-5 py-3 text-sm font-medium text-[var(--background)] transition-transform hover:scale-[1.02]"
-            >
-              {t.projects.viewDemo}
-              <ExternalLink size={15} />
-            </a>
-          )}
+          {/* Liens externes (optionnel — KIN ALERT, KIM.IA, Jolka) */}
+{project.links && project.links.length > 0 && (
+  <div className="mt-2 flex flex-col gap-3 sm:flex-row">
+    {project.links.map((link, i) => (
+      <a
+        key={link.url}
+        href={link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`flex flex-1 items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-transform hover:scale-[1.02] ${
+          i === 0
+            ? "bg-[var(--foreground)] text-[var(--background)]"
+            : "border border-[var(--border-color)] text-[var(--foreground)]"
+        }`}
+      >
+        {t.projects[link.labelKey]}
+        <ExternalLink size={15} />
+      </a>
+    ))}
+  </div>
+)}
         </div>
       </div>
     </Modal>

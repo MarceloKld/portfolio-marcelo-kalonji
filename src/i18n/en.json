@@ -104,6 +104,8 @@
   "sectionSubtitle": "A selection of real-world work, from design to production.",
   "viewMore": "View more details",
   "viewDemo": "View the project",
+  "viewUserApp": "Open the user app",
+"viewAdminApp": "Open the admin dashboard",
   "modalOverviewTitle": "Overview",
   "modalFeaturesTitle": "Key features",
   "modalRolesTitle": "Roles & security",
@@ -141,7 +143,7 @@
     "kinalert": {
       "title": "KIN ALERT — Civic Safety Platform",
       "tag": "Security / Mobile & Web App",
-      "status": "Completed",
+      "status": "Live / Completed",
       "shortDescription": "A real-time citizen alert and reporting platform built for the city of Kinshasa, including an intuitive mobile app and a centralized admin panel for emergency management.",
       "modal": {
         "overview": "KIN ALERT is a civic public-safety SaaS platform designed for the city of Kinshasa (DRC). It connects the urban population with moderators and decision-makers through a reactive event-driven architecture.",
@@ -162,7 +164,7 @@
     "kimia": {
       "title": "KIM.IA — Healthcare Platform & Pharmacy ERP",
       "tag": "Healthcare / ERP & Management",
-      "status": "Completed",
+      "status": "Live / Completed",
       "shortDescription": "A custom web application for the comprehensive management of pharmacy chains, built in partnership with a German tech company.",
       "modal": {
         "overview": "KIM.IA is an enterprise health information system designed for the global management of pharmacy networks, developed in partnership with a German technology company and meeting the strict regulatory requirements of the pharmaceutical sector.",

@@ -40,20 +40,25 @@ export const PROJECTS_META: ProjectMeta[] = [
     gallery: generateGallery("coupon", GALLERY_COUNT.unikin),
   },
   {
-    id: "kinalert",
-    cover: "/images/projects/projet-2.webp",
-    gallery: generateGallery("kin", GALLERY_COUNT.kinalert),
-  },
-  {
-    id: "kimia",
-    // ⚠️ Seule cette couverture est en .png — les autres sont en .webp
-    cover: "/images/projects/projet-3.png",
-    gallery: generateGallery("kimia", GALLERY_COUNT.kimia),
-  },
-  {
-    id: "jolka",
-    cover: "/images/projects/projet-4.webp",
-    gallery: generateGallery("jolka", GALLERY_COUNT.jolka),
-    demoUrl: "https://site-webnova.web.app/jolka",
-  },
+  id: "kinalert",
+  cover: "/images/projects/projet-2.webp",
+  gallery: generateGallery("kin", GALLERY_COUNT.kinalert),
+  links: [
+    { labelKey: "viewUserApp", url: "https://kin-alert-mobile.vercel.app/" },
+    { labelKey: "viewAdminApp", url: "https://kin-alert-admin.vercel.app/" },
+  ],
+},
+{
+  id: "kimia",
+  // ⚠️ Seule cette couverture est en .png — les autres sont en .webp
+  cover: "/images/projects/projet-3.png",
+  gallery: generateGallery("kimia", GALLERY_COUNT.kimia),
+  links: [{ labelKey: "viewDemo", url: "https://kimia-care.netlify.app/" }],
+},
+{
+  id: "jolka",
+  cover: "/images/projects/projet-4.webp",
+  gallery: generateGallery("jolka", GALLERY_COUNT.jolka),
+  links: [{ labelKey: "viewDemo", url: "https://site-webnova.web.app/jolka" }],
+},
 ];

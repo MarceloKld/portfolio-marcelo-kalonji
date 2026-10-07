@@ -104,6 +104,8 @@
   "sectionSubtitle": "Une sélection de réalisations concrètes, de la conception à la mise en production.",
   "viewMore": "Voir plus d'infos",
   "viewDemo": "Voir le projet",
+  "viewUserApp": "Ouvrir l'application utilisateurs",
+"viewAdminApp": "Ouvrir l'espace administrateur",
   "modalOverviewTitle": "Vue d'ensemble",
   "modalFeaturesTitle": "Fonctionnalités clés",
   "modalRolesTitle": "Rôles & sécurité",
@@ -141,7 +143,7 @@
     "kinalert": {
       "title": "KIN ALERT — Plateforme Civique de Sécurité",
       "tag": "Sécurité / Application Mobile & Web",
-      "status": "Réalisé",
+      "status": "En ligne / Réalisé",
       "shortDescription": "Plateforme d'alerte et de signalement citoyen en temps réel conçue pour la ville de Kinshasa. Elle comprend une application mobile intuitive et un panneau d'administration centralisé pour la gestion des urgences.",
       "modal": {
         "overview": "KIN ALERT est une plateforme SaaS civique de sécurité publique conçue pour la ville de Kinshasa (RDC). Elle connecte la population urbaine aux modérateurs et décideurs grâce à une architecture événementielle réactive (Event-Driven Architecture).",
@@ -162,7 +164,7 @@
     "kimia": {
       "title": "KIM.IA — Plateforme Sanitaire & ERP Pharmacie",
       "tag": "Santé / ERP & Gestion",
-      "status": "Réalisé",
+      "status": "En ligne / Réalisé",
       "shortDescription": "Application web sur mesure de gestion globale pour officines de pharmacie réalisée en partenariat avec une entreprise Tech allemande.",
       "modal": {
         "overview": "KIM.IA est un système d'information de santé d'entreprise conçu pour la gestion globale des réseaux d'officines et pharmacies, développé en partenariat avec une entreprise technologique allemande, répondant aux exigences réglementaires strictes du secteur pharmaceutique.",

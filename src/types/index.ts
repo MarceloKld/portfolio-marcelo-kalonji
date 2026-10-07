@@ -31,12 +31,17 @@ export type ExperienceMeta = {
 // utilisées dans fr.json / en.json sous "projects.items.<id>"
 export type ProjectId = "unikin" | "kinalert" | "kimia" | "jolka";
 
+export type ProjectLink = {
+  labelKey: "viewDemo" | "viewUserApp" | "viewAdminApp";
+  url: string;
+};
+
 // Données structurelles (non traduisibles) d'un projet
 export type ProjectMeta = {
   id: ProjectId;
   cover: string;      // image principale de la carte
   gallery: string[];  // images supplémentaires affichées dans la modale
-  demoUrl?: string;   // lien externe, optionnel (ex: Jolka uniquement)
+  links?: ProjectLink[];   // lien externe, optionnel (ex: Jolka uniquement)
 };
 
 // Une statistique chiffrée affichée dans la modale (ex: "84% — Taux de réussite")
