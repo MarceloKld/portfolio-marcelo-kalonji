@@ -186,7 +186,7 @@
           { "role": "Vendeur / Caissier POS", "scope": "Enregistrement des ventes, émission de factures, accès bloqué sur les lots périmés.", "auth": "Pin Code & Token de caisse" },
           { "role": "Fournisseur / Distributeur", "scope": "Consultation des demandes de réapprovisionnement, dépôt de catalogues.", "auth": "API Key Partenaire" }
         ],
-        "techStack": ["PHP 8.3", "Laravel 11", "React.js", "MySQL / PostgreSQL", "REST API", "Sanctum", "Tailwind CSS"]
+        "techStack": ["PHP 8.3", "Laravel 11", "React.js", "PostgreSQL", "REST API", "Sanctum", "Tailwind CSS"]
       }
     },
     "jolka": {

@@ -186,7 +186,7 @@
           { "role": "Cashier / POS Clerk", "scope": "Sales recording, invoicing, access blocked on expired batches.", "auth": "Pin Code & POS token" },
           { "role": "Supplier / Distributor", "scope": "Viewing restocking requests, submitting updated product catalogs.", "auth": "Partner API Key" }
         ],
-        "techStack": ["PHP 8.3", "Laravel 11", "React.js", "MySQL / PostgreSQL", "REST API", "Sanctum", "Tailwind CSS"]
+        "techStack": ["PHP 8.3", "Laravel 11", "React.js", "PostgreSQL", "REST API", "Sanctum", "Tailwind CSS"]
       }
     },
     "jolka": {
