@@ -42,7 +42,7 @@ export function ImageCarousel({ images, alt, autoPlayInterval = 4500 }: ImageCar
 
   return (
     <div
-      className="group relative aspect-video w-full overflow-hidden rounded-2xl bg-[var(--surface)]"
+     className="group relative h-[55vh] min-h-[320px] w-full overflow-hidden rounded-2xl bg-[var(--surface)] md:h-[65vh] md:max-h-[640px]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -52,16 +52,26 @@ export function ImageCarousel({ images, alt, autoPlayInterval = 4500 }: ImageCar
         style={{ transform: `translateX(-${index * 100}%)` }}
       >
         {images.map((src, i) => (
-          <div key={src} className="relative h-full w-full shrink-0">
-            <Image
-              src={src}
-              alt={`${alt} — visuel ${i + 1}`}
-              fill
-              sizes="(max-width: 768px) 100vw, 600px"
-              className="object-cover"
-            />
-          </div>
-        ))}
+  <div key={src} className="relative h-full w-full shrink-0">
+    {/* Fond flouté : la même image, agrandie et floutée, pour remplir les bandes vides */}
+    <Image
+      src={src}
+      alt=""
+      aria-hidden
+      fill
+      sizes="(max-width: 768px) 100vw, 600px"
+      className="scale-110 object-cover opacity-40 blur-2xl"
+    />
+    {/* Image principale : affichée en entier, jamais coupée */}
+    <Image
+      src={src}
+      alt={`${alt} — visuel ${i + 1}`}
+      fill
+      sizes="(max-width: 768px) 100vw, 600px"
+      className="object-contain"
+    />
+  </div>
+))}
       </div>
 
       {/* Flèches de navigation — affichées seulement s'il y a plus d'1 image */}
