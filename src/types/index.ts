@@ -24,3 +24,41 @@ export type ExperienceMeta = {
   id: ExperienceId;
   icon: LucideIcon; // icône générique représentant le type de mission
 };
+
+// === PROJETS (nouveau) ===
+
+// Les 4 identifiants doivent correspondre EXACTEMENT aux clés
+// utilisées dans fr.json / en.json sous "projects.items.<id>"
+export type ProjectId = "unikin" | "kinalert" | "kimia" | "jolka";
+
+// Données structurelles (non traduisibles) d'un projet
+export type ProjectMeta = {
+  id: ProjectId;
+  cover: string;      // image principale de la carte
+  gallery: string[];  // images supplémentaires affichées dans la modale
+  demoUrl?: string;   // lien externe, optionnel (ex: Jolka uniquement)
+};
+
+// Une statistique chiffrée affichée dans la modale (ex: "84% — Taux de réussite")
+export type ProjectStat = { value: string; label: string };
+
+// Une fonctionnalité clé affichée dans la modale
+export type ProjectFeature = { title: string; description: string };
+
+// Une ligne du tableau de rôles/sécurité (RBAC), affiché pour les projets concernés
+export type ProjectRole = { role: string; scope: string; auth: string };
+
+// Le contenu textuel complet d'un projet (tout ce qui est traduit)
+export type ProjectContent = {
+  title: string;
+  tag: string;
+  status: string;
+  shortDescription: string; // résumé affiché sur la carte
+  modal: {
+    overview: string;
+    stats?: ProjectStat[];     // optionnel : tous les projets n'ont pas de stats chiffrées
+    features: ProjectFeature[];
+    roles?: ProjectRole[];     // optionnel : seuls KIN ALERT et KIM.IA ont une matrice RBAC
+    techStack: string[];
+  };
+};
