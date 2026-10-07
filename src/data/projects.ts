@@ -41,7 +41,7 @@ export const PROJECTS_META: ProjectMeta[] = [
   },
   {
   id: "kinalert",
-  cover: "/images/projects/projet-5.webp",
+  cover: "/images/projects/projet-5.jpg",
   gallery: generateGallery("kin", GALLERY_COUNT.kinalert),
   links: [
     { labelKey: "viewUserApp", url: "https://kin-alert-mobile.vercel.app/" },
