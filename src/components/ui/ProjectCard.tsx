@@ -85,7 +85,7 @@ export function ProjectCard({ project, content }: ProjectCardProps) {
 
             <button
               onClick={() => setIsOpen(true)}
-              className="flex items-center gap-1.5 text-sm font-medium text-[var(--foreground)] transition-colors hover:text-[var(--accent)]"
+              className="cursor-pointer flex items-center gap-1.5 text-sm font-medium text-[var(--foreground)] transition-colors hover:text-[var(--accent)]"
             >
               <Maximize2 size={14} />
               {t.projects.viewMore}
