@@ -39,7 +39,7 @@ export function About() {
                 ============================================
               */}
               <Image
-                src="/images/profile/marcelo.webp"
+                src="/images/profile/marcelo3.webp"
                 alt="Marcelo Kalonji Kashala en présentation"
                 fill
                 className="object-cover grayscale transition-all duration-700 hover:grayscale-0"

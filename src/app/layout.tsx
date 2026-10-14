@@ -15,9 +15,13 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Marcelo Kalonji Kashala — Concepteur & Développeur Web",
-  description:
-    "Je conçois, développe et déploie des solutions numériques performantes, fiables et évolutives.",
+  description: "Je conçois, développe et déploie des solutions numériques performantes, fiables et évolutives.",
   keywords: ["développeur web", "Laravel", "Next.js", "React", "Kinshasa"],
+  // AJOUT : déclaration explicite des icônes
+  icons: {
+    icon: "/icon.svg",              // onglet navigateur classique
+    apple: "/apple-touch-icon.png",    // icône iOS (ajout écran d'accueil)
+  },
 };
 
 export default function RootLayout({
