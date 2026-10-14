@@ -212,5 +212,68 @@
       }
     }
   }
+},
+"skills": {
+  "eyebrow": "Skills",
+  "title": "The tools of my trade",
+  "subtitle": "A complete stack to cover a full web project, from back-end to interface.",
+  "categories": {
+    "frontend": {
+      "title": "Front-end",
+      "description": "Modern, fast and accessible interfaces."
+    },
+    "backend": {
+      "title": "Back-end",
+      "description": "Solid business logic and optimized databases."
+    },
+    "tools": {
+      "title": "Office & Tools",
+      "description": "Microsoft Office suite for administrative management."
+    }
+  },
+  "languagesTitle": "Spoken languages",
+  "languages": [
+    { "name": "French", "level": "Fluent" },
+    { "name": "Lingala", "level": "Fluent" }
+  ]
+},
+"about": {
+  "eyebrow": "About",
+  "title": "Who am I?",
+  "paragraph": "A passionate and rigorous developer, I master both back-end design and SQL database architecture as well as modern front-end interface development. With a background combining custom development, billing infrastructure management and on-site application deployment coordination, I have a global vision that allows me to combine technical rigor with user support.",
+  "highlights": [
+    "Back-end architecture",
+    "SQL databases",
+    "Modern front-end interfaces",
+    "Deployment & field coordination"
+  ],
+  "stats": [
+    { "value": "3+", "label": "Projects delivered" },
+    { "value": "2+", "label": "Years of experience" },
+    { "value": "100%", "label": "Quality commitment" }
+  ]
+},
+"contact": {
+  "eyebrow": "Contact",
+  "title": "Let's talk about your project",
+  "subtitle": "An idea, a project, a question? Write to me, I reply quickly.",
+  "form": {
+    "name": "Full name",
+    "namePlaceholder": "Your name",
+    "email": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "message": "Message",
+    "messagePlaceholder": "Describe your project...",
+    "submit": "Send message",
+    "sending": "Sending...",
+    "success": "Message sent! I'll reply shortly.",
+    "error": "Something went wrong. Contact me via WhatsApp instead."
+  },
+  "info": {
+    "locationLabel": "Location",
+    "location": "Kinshasa, DRC — Remote or on-site",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone / WhatsApp"
+  }
 }
 }

@@ -67,3 +67,15 @@ export type ProjectContent = {
     techStack: string[];
   };
 };
+
+
+// === COMPÉTENCES (nouveau) ===
+// Les 3 identifiants doivent correspondre EXACTEMENT aux clés
+// utilisées dans fr.json / en.json sous "skills.categories.<id>"
+export type SkillCategoryId = "frontend" | "backend" | "tools";
+
+export type SkillCategoryMeta = {
+  id: SkillCategoryId;
+  icon: LucideIcon;       // icône générique (pas un logo de marque)
+  items: string[];        // noms de technologies : noms propres, JAMAIS traduits
+};

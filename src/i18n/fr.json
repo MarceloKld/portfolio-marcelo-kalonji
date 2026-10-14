@@ -212,5 +212,68 @@
       }
     }
   }
+},
+"skills": {
+  "eyebrow": "Compétences",
+  "title": "Les outils de mon métier",
+  "subtitle": "Une stack complète pour couvrir l'intégralité d'un projet web, du back-end à l'interface.",
+  "categories": {
+    "frontend": {
+      "title": "Front-end",
+      "description": "Interfaces modernes, rapides et accessibles."
+    },
+    "backend": {
+      "title": "Back-end",
+      "description": "Logique métier solide et bases de données optimisées."
+    },
+    "tools": {
+      "title": "Bureautique & Outils",
+      "description": "Suite Microsoft Office pour la gestion administrative."
+    }
+  },
+  "languagesTitle": "Langues parlées",
+  "languages": [
+    { "name": "Français", "level": "Courant" },
+    { "name": "Lingala", "level": "Courant" }
+  ]
+},
+"about": {
+  "eyebrow": "À propos",
+  "title": "Qui suis-je ?",
+  "paragraph": "Développeur passionné et rigoureux, je maîtrise aussi bien la conception back-end et l'architecture des bases de données SQL que le développement d'interfaces front-end modernes. Grâce à mon parcours mêlant développement sur mesure, gestion d'infrastructure de facturation et coordination de déploiements d'applications sur le terrain, je dispose d'une vision globale qui me permet d'allier exigence technique et accompagnement utilisateur.",
+  "highlights": [
+    "Architecture back-end",
+    "Bases de données SQL",
+    "Interfaces front-end modernes",
+    "Déploiement & coordination terrain"
+  ],
+  "stats": [
+    { "value": "3+", "label": "Projets réalisés" },
+    { "value": "2+", "label": "Ans d'expérience" },
+    { "value": "100%", "label": "Engagement qualité" }
+  ]
+},
+"contact": {
+  "eyebrow": "Contact",
+  "title": "Discutons de votre projet",
+  "subtitle": "Une idée, un projet, une question ? Écrivez-moi, je réponds rapidement.",
+  "form": {
+    "name": "Nom complet",
+    "namePlaceholder": "Votre nom",
+    "email": "Adresse email",
+    "emailPlaceholder": "vous@exemple.com",
+    "message": "Message",
+    "messagePlaceholder": "Décrivez votre projet...",
+    "submit": "Envoyer le message",
+    "sending": "Envoi en cours...",
+    "success": "Message envoyé ! Je vous réponds rapidement.",
+    "error": "Une erreur est survenue. Contactez-moi via WhatsApp à la place."
+  },
+  "info": {
+    "locationLabel": "Localisation",
+    "location": "Kinshasa, RDC — Remote ou sur site",
+    "emailLabel": "Email",
+    "phoneLabel": "Téléphone / WhatsApp"
+  }
 }
 }
