@@ -69,13 +69,21 @@ export type ProjectContent = {
 };
 
 
-// === COMPÉTENCES (nouveau) ===
-// Les 3 identifiants doivent correspondre EXACTEMENT aux clés
-// utilisées dans fr.json / en.json sous "skills.categories.<id>"
-export type SkillCategoryId = "frontend" | "backend" | "tools";
+// === COMPÉTENCES (v2 — barres de progression + ticker technologique) ===
 
-export type SkillCategoryMeta = {
-  id: SkillCategoryId;
-  icon: LucideIcon;       // icône générique (pas un logo de marque)
-  items: string[];        // noms de technologies : noms propres, JAMAIS traduits
+// Une ligne de la liste "Développement" avec son pourcentage de maîtrise
+export type DevSkill = {
+  name: string;
+  percentage: number; // 0 à 100
+};
+
+// Un outil/techno affiché dans le ticker défilant
+// On accepte soit une icône Lucide (générique), soit un SVG maison (ex: GithubIcon)
+type IconComponent =
+  | LucideIcon
+  | ((props: { className?: string }) => React.JSX.Element);
+
+export type TechItem = {
+  name: string;
+  icon: IconComponent;
 };

@@ -98,7 +98,7 @@ export function Hero() {
             <div
               className={`absolute inset-x-0 z-0 flex items-center ${NAME_BAND_TOP} ${NAME_BAND_HEIGHT}`}
             >
-              <Marquee speed={MARQUEE_SPEED} repeat={MARQUEE_REPEAT}>
+              <Marquee speed={MARQUEE_SPEED} repeat={MARQUEE_REPEAT} fullBleed>
                 {nameItem}
               </Marquee>
             </div>

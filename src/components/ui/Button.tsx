@@ -1,57 +1,65 @@
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import type { ReactNode } from "react";
-
-// On définit les variantes visuelles possibles du bouton
-type ButtonProps = {
-  children: ReactNode;
-  href?: string;                    // si présent → c'est un lien
-  onClick?: () => void;             // si présent → c'est une action (ex: ouvrir menu)
-  variant?: "primary" | "secondary"; // style du bouton
-  className?: string;               // classes additionnelles optionnelles
-};
+"use client";
 
 /**
- * Bouton réutilisable dans tout le site.
- * - variant="primary"   → fond plein (noir en light mode / blanc en dark mode)
- * - variant="secondary" → contour fin, transparent
+ * Button.tsx
+ * -----------
+ * Composant polymorphe :
+ *  - si on lui donne une prop "href" → il devient un <Link> Next.js (navigation)
+ *  - sinon → il devient un vrai <button> HTML natif (formulaires, actions JS)
  *
- * S'il reçoit un "href", il se comporte comme un lien (Next.js <Link>).
- * Sinon, il se comporte comme un vrai <button>.
+ * AVANT : ButtonProps ne gérait que quelques props custom → TypeScript
+ * refusait "type", "disabled", etc. dans Contact.tsx.
+ * MAINTENANT : on étend directement les types HTML officiels de React
+ * (AnchorHTMLAttributes / ButtonHTMLAttributes) → TOUTES les props natives
+ * sont acceptées automatiquement, sans jamais avoir à les lister nous-mêmes.
  */
-export function Button({
-  children,
-  href,
-  onClick,
-  variant = "primary",
-  className,
-}: ButtonProps) {
-  // Classes communes à tous les boutons
-  const baseStyles =
-    "inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 
-  // Classes spécifiques selon la variante choisie
-  const variants = {
-    primary:
-      "bg-[var(--foreground)] text-[var(--background)] hover:opacity-90",
-    secondary:
-      "border border-[var(--border-color)] text-[var(--foreground)] hover:bg-[var(--surface)]",
-  };
+type BaseProps = {
+  variant?: "primary" | "secondary";
+  className?: string;
+};
 
-  const combinedClassName = cn(baseStyles, variants[variant], className);
+// Cas "lien" : href est obligatoire, on hérite des attributs d'un <a>
+type LinkProps = BaseProps &
+  AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
 
-  // Cas 1 : c'est un lien de navigation
-  if (href) {
+// Cas "bouton" : pas de href, on hérite des attributs d'un <button>
+// (c'est ICI que "type", "disabled" deviennent disponibles)
+type NativeButtonProps = BaseProps &
+  ButtonHTMLAttributes<HTMLButtonElement> & { href?: undefined };
+
+type ButtonProps = LinkProps | NativeButtonProps;
+
+const baseStyles =
+  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50";
+
+const variants = {
+  primary:
+    "bg-[var(--foreground)] text-[var(--background)] hover:bg-[var(--accent)] hover:text-black",
+  secondary:
+    "border border-[var(--border-color)] text-[var(--foreground)] hover:border-[var(--accent)]",
+};
+
+export function Button({ variant = "primary", className, ...props }: ButtonProps) {
+  const classes = cn(baseStyles, variants[variant], className);
+
+  // Branche "lien" : si href est présent et non vide
+  if ("href" in props && props.href) {
+    const { href, children, ...rest } = props as LinkProps;
     return (
-      <Link href={href} className={combinedClassName}>
+      <Link href={href} className={classes} {...rest}>
         {children}
       </Link>
     );
   }
 
-  // Cas 2 : c'est un bouton d'action classique
+  // Branche "bouton natif" : type="submit" fonctionne maintenant nativement
+  const { children, ...rest } = props as NativeButtonProps;
   return (
-    <button onClick={onClick} className={combinedClassName}>
+    <button className={classes} {...rest}>
       {children}
     </button>
   );

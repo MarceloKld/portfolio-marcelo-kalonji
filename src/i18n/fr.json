@@ -99,181 +99,191 @@
     }
   },
   "projects": {
-  "sectionLabel": "Réalisations",
-  "sectionTitle": "Mes projets récents",
-  "sectionSubtitle": "Une sélection de réalisations concrètes, de la conception à la mise en production.",
-  "viewMore": "Voir plus d'infos",
-  "viewDemo": "Voir le projet",
-  "viewUserApp": "Ouvrir l'application utilisateurs",
-"viewAdminApp": "Ouvrir l'espace administrateur",
-  "modalOverviewTitle": "Vue d'ensemble",
-  "modalFeaturesTitle": "Fonctionnalités clés",
-  "modalRolesTitle": "Rôles & sécurité",
-  "modalRoleColumns": {
-    "role": "Rôle",
-    "scope": "Périmètre d'action",
-    "auth": "Authentification"
-  },
-  "modalTechTitle": "Stack technique",
-  "items": {
-    "unikin": {
-      "title": "Plateforme LMD & Délibérations Académiques — UNIKIN",
-      "tag": "Éducation / Architecture LMD",
-      "status": "Réalisé",
-      "shortDescription": "Écosystème numérique universitaire complet permettant la gestion automatisée des délibérations, le suivi des palmarès, ainsi que la vérification et validation par QR Code des coupons digitaux pour l'accès aux résultats académiques.",
-      "modal": {
-        "overview": "Système d'information universitaire certifié assurant la digitalisation du cycle complet des délibérations académiques, la sécurisation des résultats par QR Code et le contrôle des flux de consultation en temps réel.",
-        "stats": [
-          { "value": "81", "label": "Effectif délibéré" },
-          { "value": "68", "label": "Admis" },
-          { "value": "84.0%", "label": "Taux de réussite" },
-          { "value": "1308", "label": "Étudiants en base" }
-        ],
-        "features": [
-          { "title": "Portail Étudiant", "description": "Authentification sécurisée par ID et Token temporaire pour la consultation individuelle des résultats." },
-          { "title": "Moteur de Délibération", "description": "Calcul automatique des moyennes, crédits capitalisés et taux de réussite avec tableaux de bord analytiques." },
-          { "title": "Sécurisation par QR Code", "description": "Authentification instantanée des relevés de notes imprimés ou numériques via le QR Code Engine." },
-          { "title": "Module Surveillance & Logs", "description": "Monitoring en direct des connexions, détection des menaces et audit des accès aux serveurs." },
-          { "title": "Gestion des Départements", "description": "Contrôle d'accès ciblé permettant d'ouvrir ou de bloquer la consultation des résultats par promotion." },
-          { "title": "Délivrance de Certificats", "description": "Génération de badges d'admission, téléchargeables au format PDF ou partageables via WhatsApp." }
-        ],
-        "techStack": ["React", "Tailwind CSS", "C# / .NET Core", "Firebase", "SQL Server", "QR Code Engine"]
-      }
+    "sectionLabel": "Réalisations",
+    "sectionTitle": "Mes projets récents",
+    "sectionSubtitle": "Une sélection de réalisations concrètes, de la conception à la mise en production.",
+    "viewMore": "Voir plus d'infos",
+    "viewDemo": "Voir le projet",
+    "viewUserApp": "Ouvrir l'application utilisateurs",
+    "viewAdminApp": "Ouvrir l'espace administrateur",
+    "modalOverviewTitle": "Vue d'ensemble",
+    "modalFeaturesTitle": "Fonctionnalités clés",
+    "modalRolesTitle": "Rôles & sécurité",
+    "modalRoleColumns": {
+      "role": "Rôle",
+      "scope": "Périmètre d'action",
+      "auth": "Authentification"
     },
-    "kinalert": {
-      "title": "KIN ALERT — Plateforme Civique de Sécurité",
-      "tag": "Sécurité / Application Mobile & Web",
-      "status": "En ligne / Réalisé",
-      "shortDescription": "Plateforme d'alerte et de signalement citoyen en temps réel conçue pour la ville de Kinshasa. Elle comprend une application mobile intuitive et un panneau d'administration centralisé pour la gestion des urgences.",
-      "modal": {
-        "overview": "KIN ALERT est une plateforme SaaS civique de sécurité publique conçue pour la ville de Kinshasa (RDC). Elle connecte la population urbaine aux modérateurs et décideurs grâce à une architecture événementielle réactive (Event-Driven Architecture).",
-        "features": [
-          { "title": "Résolution d'Urgences Locales", "description": "Signalement géolocalisé d'incidents critiques (inondations, crimes, érosions, pannes, bouchons) avec cartographie interactive." },
-          { "title": "Validation Communautaire Anti-Spam", "description": "Algorithme de confirmation participative empêchant les faux signalements via un seuil administrable." },
-          { "title": "Architecture Industrielle", "description": "Séparation stricte Backend (Laravel 11 REST API / Event Bus) et Frontend (Next.js & React Native)." },
-          { "title": "Dashboard Exécutif & Monitoring", "description": "KPIs en temps réel, carte des risques et centre de communication Push/Broadcast." }
-        ],
-        "roles": [
-          { "role": "Citoyen / Mobile", "scope": "Création d'incident, géolocalisation GPS, confirmation d'incidents tiers, notifications push.", "auth": "Sanctum Stateless Token" },
-          { "role": "Gestionnaire / Modérateur", "scope": "Modération du flux d'incidents, suivi des activités, gestion basique des utilisateurs.", "auth": "Sanctum Admin Token (manager)" },
-          { "role": "Admin / Super-Admin", "scope": "Droits globaux, configuration du seuil de confirmation, gestion des gestionnaires, audit logs.", "auth": "Sanctum Admin Token (admin)" }
-        ],
-        "techStack": ["Laravel 11", "Next.js", "React Native", "REST API", "Leaflet / GIS", "Sanctum Auth"]
-      }
-    },
-    "kimia": {
-      "title": "KIM.IA — Plateforme Sanitaire & ERP Pharmacie",
-      "tag": "Santé / ERP & Gestion",
-      "status": "En ligne / Réalisé",
-      "shortDescription": "Application web sur mesure de gestion globale pour officines de pharmacie réalisée en partenariat avec une entreprise Tech allemande.",
-      "modal": {
-        "overview": "KIM.IA est un système d'information de santé d'entreprise conçu pour la gestion globale des réseaux d'officines et pharmacies, développé en partenariat avec une entreprise technologique allemande, répondant aux exigences réglementaires strictes du secteur pharmaceutique.",
-        "stats": [
-          { "value": "Multi", "label": "Devises CDF / USD" },
-          { "value": "SaaS", "label": "Multi-officines" },
-          { "value": "TLS 1.3", "label": "Chiffrement" }
-        ],
-        "features": [
-          { "title": "Blocage Anti-Péremption", "description": "Moteur d'analyse prédictive bloquant instantanément la facturation de tout lot périmé ou rappelé." },
-          { "title": "Méthode FEFO", "description": "Gestion de stock First Expired First Out couplée à un worker d'audit continu (Cron Laravel quotidien)." },
-          { "title": "Blocage au Niveau Base de Données", "description": "Vérification du statut BLOCKED_EXPIRED directement au niveau du SGBD avant toute facturation." },
-          { "title": "Administration Réseau", "description": "Supervision globale des licences d'officines et cartographie du flux sur l'ensemble du territoire." },
-          { "title": "Rapports & Anomalies", "description": "Rapports détaillés des produits bloqués ou impropres à la vente, exportables pour audit." }
-        ],
-        "roles": [
-          { "role": "Super-Admin Sanitaire", "scope": "Supervision globale, gestion des licences, audit global et logs système.", "auth": "Sanctum OAuth2 (MFA obligatoire)" },
-          { "role": "Pharmacien Titulaire", "scope": "Gestion des stocks, validation des commandes, ajustement des prix, rapports financiers.", "auth": "Session / Token sécurisé" },
-          { "role": "Vendeur / Caissier POS", "scope": "Enregistrement des ventes, émission de factures, accès bloqué sur les lots périmés.", "auth": "Pin Code & Token de caisse" },
-          { "role": "Fournisseur / Distributeur", "scope": "Consultation des demandes de réapprovisionnement, dépôt de catalogues.", "auth": "API Key Partenaire" }
-        ],
-        "techStack": ["PHP 8.3", "Laravel 11", "React.js", "PostgreSQL", "REST API", "Sanctum", "Tailwind CSS"]
-      }
-    },
-    "jolka": {
-      "title": "Jolka Beauty Collection",
-      "tag": "Site Web Commercial / E-Commerce",
-      "status": "En ligne / Réalisé",
-      "shortDescription": "Plateforme e-commerce élégante pour une marque de parfums de luxe, proposant une prise de commande fluide et directe connectée à WhatsApp, associée à un portail d'administration complet.",
-      "modal": {
-        "overview": "Jolka Beauty Collection est une plateforme web e-commerce sur-mesure conçue pour valoriser des fragrances de luxe d'inspiration orientale. Elle associe une vitrine digitale raffinée à un système innovant de prise de commande directe réorientée vers WhatsApp.",
-        "stats": [
-          { "value": "22", "label": "Visiteurs uniques" },
-          { "value": "8", "label": "Parfums au catalogue" },
-          { "value": "100%", "label": "Authentique" },
-          { "value": "Direct", "label": "Tunnel WhatsApp" }
-        ],
-        "features": [
-          { "title": "Vitrine Immersion Luxe", "description": "Interface sombre élégante agrémentée de touches dorées, mettant en valeur chaque création parfumée." },
-          { "title": "Catalogue Dynamique", "description": "Fiches produits détaillées avec notes olfactives (Tête, Cœur, Fond), volumes, prix et stock en temps réel." },
-          { "title": "Tunnel de Commande WhatsApp", "description": "Formulaire de réservation pré-rempli générant un message structuré vers le service client." },
-          { "title": "Back-Office Complet", "description": "Dashboard analytique, gestion du catalogue et suivi détaillé des commandes clients." }
-        ],
-        "techStack": ["HTML5", "CSS3", "JavaScript ES6+", "Firebase"]
+    "modalTechTitle": "Stack technique",
+    "items": {
+      "unikin": {
+        "title": "Plateforme LMD & Délibérations Académiques — UNIKIN",
+        "tag": "Éducation / Architecture LMD",
+        "status": "Réalisé",
+        "shortDescription": "Écosystème numérique universitaire complet permettant la gestion automatisée des délibérations, le suivi des palmarès, ainsi que la vérification et validation par QR Code des coupons digitaux pour l'accès aux résultats académiques.",
+        "modal": {
+          "overview": "Système d'information universitaire certifié assurant la digitalisation du cycle complet des délibérations académiques, la sécurisation des résultats par QR Code et le contrôle des flux de consultation en temps réel.",
+          "stats": [
+            { "value": "81", "label": "Effectif délibéré" },
+            { "value": "68", "label": "Admis" },
+            { "value": "84.0%", "label": "Taux de réussite" },
+            { "value": "1308", "label": "Étudiants en base" }
+          ],
+          "features": [
+            { "title": "Portail Étudiant", "description": "Authentification sécurisée par ID et Token temporaire pour la consultation individuelle des résultats." },
+            { "title": "Moteur de Délibération", "description": "Calcul automatique des moyennes, crédits capitalisés et taux de réussite avec tableaux de bord analytiques." },
+            { "title": "Sécurisation par QR Code", "description": "Authentification instantanée des relevés de notes imprimés ou numériques via le QR Code Engine." },
+            { "title": "Module Surveillance & Logs", "description": "Monitoring en direct des connexions, détection des menaces et audit des accès aux serveurs." },
+            { "title": "Gestion des Départements", "description": "Contrôle d'accès ciblé permettant d'ouvrir ou de bloquer la consultation des résultats par promotion." },
+            { "title": "Délivrance de Certificats", "description": "Génération de badges d'admission, téléchargeables au format PDF ou partageables via WhatsApp." }
+          ],
+          "techStack": ["React", "Tailwind CSS", "C# / .NET Core", "Firebase", "SQL Server", "QR Code Engine"]
+        }
+      },
+      "kinalert": {
+        "title": "KIN ALERT — Plateforme Civique de Sécurité",
+        "tag": "Sécurité / Application Mobile & Web",
+        "status": "En ligne / Réalisé",
+        "shortDescription": "Plateforme d'alerte et de signalement citoyen en temps réel conçue pour la ville de Kinshasa. Elle comprend une application mobile intuitive et un panneau d'administration centralisé pour la gestion des urgences.",
+        "modal": {
+          "overview": "KIN ALERT est une plateforme SaaS civique de sécurité publique conçue pour la ville de Kinshasa (RDC). Elle connecte la population urbaine aux modérateurs et décideurs grâce à une architecture événementielle réactive (Event-Driven Architecture).",
+          "features": [
+            { "title": "Résolution d'Urgences Locales", "description": "Signalement géolocalisé d'incidents critiques (inondations, crimes, érosions, pannes, bouchons) avec cartographie interactive." },
+            { "title": "Validation Communautaire Anti-Spam", "description": "Algorithme de confirmation participative empêchant les faux signalements via un seuil administrable." },
+            { "title": "Architecture Industrielle", "description": "Séparation stricte Backend (Laravel 11 REST API / Event Bus) et Frontend (Next.js & React Native)." },
+            { "title": "Dashboard Exécutif & Monitoring", "description": "KPIs en temps réel, carte des risques et centre de communication Push/Broadcast." }
+          ],
+          "roles": [
+            { "role": "Citoyen / Mobile", "scope": "Création d'incident, géolocalisation GPS, confirmation d'incidents tiers, notifications push.", "auth": "Sanctum Stateless Token" },
+            { "role": "Gestionnaire / Modérateur", "scope": "Modération du flux d'incidents, suivi des activités, gestion basique des utilisateurs.", "auth": "Sanctum Admin Token (manager)" },
+            { "role": "Admin / Super-Admin", "scope": "Droits globaux, configuration du seuil de confirmation, gestion des gestionnaires, audit logs.", "auth": "Sanctum Admin Token (admin)" }
+          ],
+          "techStack": ["Laravel 11", "Next.js", "React Native", "REST API", "Leaflet / GIS", "Sanctum Auth"]
+        }
+      },
+      "kimia": {
+        "title": "KIM.IA — Plateforme Sanitaire & ERP Pharmacie",
+        "tag": "Santé / ERP & Gestion",
+        "status": "En ligne / Réalisé",
+        "shortDescription": "Application web sur mesure de gestion globale pour officines de pharmacie réalisée en partenariat avec une entreprise Tech allemande.",
+        "modal": {
+          "overview": "KIM.IA est un système d'information de santé d'entreprise conçu pour la gestion globale des réseaux d'officines et pharmacies, développé en partenariat avec une entreprise technologique allemande, répondant aux exigences réglementaires strictes du secteur pharmaceutique.",
+          "stats": [
+            { "value": "Multi", "label": "Devises CDF / USD" },
+            { "value": "SaaS", "label": "Multi-officines" },
+            { "value": "TLS 1.3", "label": "Chiffrement" }
+          ],
+          "features": [
+            { "title": "Blocage Anti-Péremption", "description": "Moteur d'analyse prédictive bloquant instantanément la facturation de tout lot périmé ou rappelé." },
+            { "title": "Méthode FEFO", "description": "Gestion de stock First Expired First Out couplée à un worker d'audit continu (Cron Laravel quotidien)." },
+            { "title": "Blocage au Niveau Base de Données", "description": "Vérification du statut BLOCKED_EXPIRED directement au niveau du SGBD avant toute facturation." },
+            { "title": "Administration Réseau", "description": "Supervision globale des licences d'officines et cartographie du flux sur l'ensemble du territoire." },
+            { "title": "Rapports & Anomalies", "description": "Rapports détaillés des produits bloqués ou impropres à la vente, exportables pour audit." }
+          ],
+          "roles": [
+            { "role": "Super-Admin Sanitaire", "scope": "Supervision globale, gestion des licences, audit global et logs système.", "auth": "Sanctum OAuth2 (MFA obligatoire)" },
+            { "role": "Pharmacien Titulaire", "scope": "Gestion des stocks, validation des commandes, ajustement des prix, rapports financiers.", "auth": "Session / Token sécurisé" },
+            { "role": "Vendeur / Caissier POS", "scope": "Enregistrement des ventes, émission de factures, accès bloqué sur les lots périmés.", "auth": "Pin Code & Token de caisse" },
+            { "role": "Fournisseur / Distributeur", "scope": "Consultation des demandes de réapprovisionnement, dépôt de catalogues.", "auth": "API Key Partenaire" }
+          ],
+          "techStack": ["PHP 8.3", "Laravel 11", "React.js", "PostgreSQL", "REST API", "Sanctum", "Tailwind CSS"]
+        }
+      },
+      "jolka": {
+        "title": "Jolka Beauty Collection",
+        "tag": "Site Web Commercial / E-Commerce",
+        "status": "En ligne / Réalisé",
+        "shortDescription": "Plateforme e-commerce élégante pour une marque de parfums de luxe, proposant une prise de commande fluide et directe connectée à WhatsApp, associée à un portail d'administration complet.",
+        "modal": {
+          "overview": "Jolka Beauty Collection est une plateforme web e-commerce sur-mesure conçue pour valoriser des fragrances de luxe d'inspiration orientale. Elle associe une vitrine digitale raffinée à un système innovant de prise de commande directe réorientée vers WhatsApp.",
+          "stats": [
+            { "value": "22", "label": "Visiteurs uniques" },
+            { "value": "8", "label": "Parfums au catalogue" },
+            { "value": "100%", "label": "Authentique" },
+            { "value": "Direct", "label": "Tunnel WhatsApp" }
+          ],
+          "features": [
+            { "title": "Vitrine Immersion Luxe", "description": "Interface sombre élégante agrémentée de touches dorées, mettant en valeur chaque création parfumée." },
+            { "title": "Catalogue Dynamique", "description": "Fiches produits détaillées avec notes olfactives (Tête, Cœur, Fond), volumes, prix et stock en temps réel." },
+            { "title": "Tunnel de Commande WhatsApp", "description": "Formulaire de réservation pré-rempli générant un message structuré vers le service client." },
+            { "title": "Back-Office Complet", "description": "Dashboard analytique, gestion du catalogue et suivi détaillé des commandes clients." }
+          ],
+          "techStack": ["HTML5", "CSS3", "JavaScript ES6+", "Firebase"]
+        }
       }
     }
-  }
-},
-"skills": {
-  "eyebrow": "Compétences",
-  "title": "Les outils de mon métier",
-  "subtitle": "Une stack complète pour couvrir l'intégralité d'un projet web, du back-end à l'interface.",
-  "categories": {
-    "frontend": {
-      "title": "Front-end",
-      "description": "Interfaces modernes, rapides et accessibles."
+  },
+  "skills": {
+    "eyebrow": "Stack Technique",
+    "title": "Compétences",
+    "subtitle": "Une maîtrise complète de la chaîne technique, du back-end à l'interface utilisateur.",
+    "devTitle": "Développement",
+    "techTitle": "Technologies",
+    "categories": {
+      "frontend": {
+        "title": "Front-end",
+        "description": "Interfaces modernes, rapides et accessibles."
+      },
+      "backend": {
+        "title": "Back-end",
+        "description": "Logique métier solide et bases de données optimisées."
+      },
+      "tools": {
+        "title": "Bureautique & Outils",
+        "description": "Suite Microsoft Office pour la gestion administrative."
+      }
     },
-    "backend": {
-      "title": "Back-end",
-      "description": "Logique métier solide et bases de données optimisées."
-    },
-    "tools": {
-      "title": "Bureautique & Outils",
-      "description": "Suite Microsoft Office pour la gestion administrative."
+    "languagesTitle": "Langues parlées",
+    "languages": [
+      { "name": "Français", "level": "Courant" },
+      { "name": "Lingala", "level": "Courant" }
+    ]
+  },
+  "about": {
+    "eyebrow": "À propos",
+    "title": "Qui suis-je ?",
+    "paragraph": "Développeur passionné et rigoureux, je maîtrise aussi bien la conception back-end et l'architecture des bases de données SQL que le développement d'interfaces front-end modernes. Grâce à mon parcours mêlant développement sur mesure, gestion d'infrastructure de facturation et coordination de déploiements d'applications sur le terrain, je dispose d'une vision globale qui me permet d'allier exigence technique et accompagnement utilisateur.",
+    "highlights": [
+      "Architecture back-end",
+      "Bases de données SQL",
+      "Interfaces front-end modernes",
+      "Déploiement & coordination terrain"
+    ],
+    "stats": {
+      "projects": "Projets Livrés",
+      "experience": "Ans d'Expérience",
+      "tech": "Technologies"
     }
   },
-  "languagesTitle": "Langues parlées",
-  "languages": [
-    { "name": "Français", "level": "Courant" },
-    { "name": "Lingala", "level": "Courant" }
-  ]
-},
-"about": {
-  "eyebrow": "À propos",
-  "title": "Qui suis-je ?",
-  "paragraph": "Développeur passionné et rigoureux, je maîtrise aussi bien la conception back-end et l'architecture des bases de données SQL que le développement d'interfaces front-end modernes. Grâce à mon parcours mêlant développement sur mesure, gestion d'infrastructure de facturation et coordination de déploiements d'applications sur le terrain, je dispose d'une vision globale qui me permet d'allier exigence technique et accompagnement utilisateur.",
-  "highlights": [
-    "Architecture back-end",
-    "Bases de données SQL",
-    "Interfaces front-end modernes",
-    "Déploiement & coordination terrain"
-  ],
-  "stats": [
-    { "value": "3+", "label": "Projets réalisés" },
-    { "value": "2+", "label": "Ans d'expérience" },
-    { "value": "100%", "label": "Engagement qualité" }
-  ]
-},
-"contact": {
-  "eyebrow": "Contact",
-  "title": "Discutons de votre projet",
-  "subtitle": "Une idée, un projet, une question ? Écrivez-moi, je réponds rapidement.",
-  "form": {
-    "name": "Nom complet",
-    "namePlaceholder": "Votre nom",
-    "email": "Adresse email",
-    "emailPlaceholder": "vous@exemple.com",
-    "message": "Message",
-    "messagePlaceholder": "Décrivez votre projet...",
-    "submit": "Envoyer le message",
-    "sending": "Envoi en cours...",
-    "success": "Message envoyé ! Je vous réponds rapidement.",
-    "error": "Une erreur est survenue. Contactez-moi via WhatsApp à la place."
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Discutons de votre projet",
+    "subtitle": "Une idée, un projet, une question ? Écrivez-moi, je réponds rapidement.",
+    "form": {
+      "name": "Nom complet",
+      "namePlaceholder": "Votre nom",
+      "email": "Adresse email",
+      "emailPlaceholder": "vous@exemple.com",
+      "message": "Message",
+      "messagePlaceholder": "Décrivez votre projet...",
+      "submit": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé ! Je vous réponds rapidement.",
+      "error": "Une erreur est survenue. Contactez-moi via WhatsApp à la place."
+    },
+    "info": {
+      "locationLabel": "Localisation",
+      "location": "Kinshasa, RDC — Remote ou sur site",
+      "emailLabel": "Email",
+      "phoneLabel": "Téléphone / WhatsApp"
+    }
   },
-  "info": {
-    "locationLabel": "Localisation",
-    "location": "Kinshasa, RDC — Remote ou sur site",
-    "emailLabel": "Email",
-    "phoneLabel": "Téléphone / WhatsApp"
+  "footer": {
+    "tagline": "Je conçois des solutions numériques performantes, de la base de données à l'interface utilisateur.",
+    "navTitle": "Navigation",
+    "socialTitle": "Me retrouver",
+    "availability": "Disponible pour de nouveaux projets",
+    "rights": "Tous droits réservés.",
+    "backToTop": "Retour en haut ↑"
   }
-}
 }

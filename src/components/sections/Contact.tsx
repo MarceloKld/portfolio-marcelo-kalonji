@@ -132,7 +132,8 @@ export function Contact() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder={t.contact.form.namePlaceholder}
-                className="w-full rounded-lg border bg-transparent px-4 py-2.5 text-sm outline-none transition-colors focus:border-[var(--accent)]"
+               // Sur chaque <input> et le <textarea>, ajoute "focus:scale-[1.01]" :
+className="w-full rounded-lg border bg-transparent px-4 py-2.5 text-sm outline-none transition-all duration-200 focus:scale-[1.01] focus:border-[var(--accent)]"
                 style={{ borderColor: "var(--border-color)" }}
               />
             </div>
@@ -148,7 +149,8 @@ export function Contact() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={t.contact.form.emailPlaceholder}
-                className="w-full rounded-lg border bg-transparent px-4 py-2.5 text-sm outline-none transition-colors focus:border-[var(--accent)]"
+                // Sur chaque <input> et le <textarea>, ajoute "focus:scale-[1.01]" :
+                className="w-full rounded-lg border bg-transparent px-4 py-2.5 text-sm outline-none transition-all duration-200 focus:scale-[1.01] focus:border-[var(--accent)]"
                 style={{ borderColor: "var(--border-color)" }}
               />
             </div>
@@ -164,7 +166,7 @@ export function Contact() {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder={t.contact.form.messagePlaceholder}
-                className="w-full resize-none rounded-lg border bg-transparent px-4 py-2.5 text-sm outline-none transition-colors focus:border-[var(--accent)]"
+                className="w-full rounded-lg border bg-transparent px-4 py-2.5 text-sm outline-none transition-all duration-200 focus:scale-[1.01] focus:border-[var(--accent)]"
                 style={{ borderColor: "var(--border-color)" }}
               />
             </div>
@@ -181,18 +183,18 @@ export function Contact() {
             </Button>
 
             {/* Messages de confirmation / erreur, visibles seulement après tentative d'envoi */}
-            {status === "success" && (
-              <p className="flex items-center gap-2 text-sm text-[var(--accent)]">
-                <CheckCircle2 size={16} />
-                {t.contact.form.success}
-              </p>
-            )}
-            {status === "error" && (
-              <p className="flex items-center gap-2 text-sm text-red-500">
-                <AlertCircle size={16} />
-                {t.contact.form.error}
-              </p>
-            )}
+{status === "success" && (
+  <p className="flex animate-fade-up items-center gap-2 text-sm text-[var(--accent)]">
+    <CheckCircle2 size={16} />
+    {t.contact.form.success}
+  </p>
+)}
+{status === "error" && (
+  <p className="flex animate-fade-up items-center gap-2 text-sm text-red-500">
+    <AlertCircle size={16} />
+    {t.contact.form.error}
+  </p>
+)}
           </form>
         </Reveal>
       </div>
