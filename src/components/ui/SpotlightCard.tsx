@@ -10,16 +10,10 @@ type SpotlightCardProps = {
 
 /**
  * Enveloppe n'importe quelle carte pour lui ajouter un halo lumineux
- * qui suit le curseur au survol (effet "Spotlight", très utilisé
- * sur les portfolios primés Awwwards).
+ * qui suit le curseur au survol (effet "Spotlight").
  *
- * Choix technique important : on modifie directement le style du DOM
- * via el.style.setProperty(), SANS passer par useState. 
- * Pourquoi ? Parce que useState déclencherait un RE-RENDU React à
- * chaque micro-mouvement de souris (des dizaines de fois par seconde) —
- * ce qui serait lourd et contraire à notre exigence de performance.
- * Manipuler directement le style est la技 technique recommandée pour
- * les animations suivant la souris en continu.
+ * Technique : modification directe du style via el.style.setProperty()
+ * → pas de re-render React à chaque mouvement de souris.
  */
 export function SpotlightCard({ children, className }: SpotlightCardProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -27,19 +21,33 @@ export function SpotlightCard({ children, className }: SpotlightCardProps) {
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     const el = ref.current;
     if (!el) return;
+
     const rect = el.getBoundingClientRect();
-    // Position du curseur RELATIVE au coin supérieur gauche de la carte
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
+
     el.style.setProperty("--spotlight-x", `${x}px`);
     el.style.setProperty("--spotlight-y", `${y}px`);
+  };
+
+  const handleMouseLeave = () => {
+    const el = ref.current;
+    if (!el) return;
+    // Optionnel : recentrer doucement le spotlight à la sortie
+    // (tu peux commenter ces 2 lignes si tu préfères qu'il reste où il était)
+    el.style.setProperty("--spotlight-x", "50%");
+    el.style.setProperty("--spotlight-y", "50%");
   };
 
   return (
     <div
       ref={ref}
       onMouseMove={handleMouseMove}
-      className={cn("spotlight-card", className)}
+      onMouseLeave={handleMouseLeave}
+      className={cn(
+        "spotlight-card relative overflow-hidden", // overflow-hidden important pour le halo
+        className
+      )}
     >
       {children}
     </div>
