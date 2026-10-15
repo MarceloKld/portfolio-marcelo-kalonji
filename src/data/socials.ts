@@ -19,8 +19,8 @@ export type SocialLink = {
  * par tes vraies URLs de profil.
  */
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: "GitHub", href: "https://github.com/TON-PSEUDO", icon: GithubIcon },
-  { label: "LinkedIn", href: "https://linkedin.com/in/TON-PROFIL", icon: LinkedinIcon },
+  { label: "GitHub", href: "https://github.com/MarceloKld", icon: GithubIcon },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/marcelo-kalonji-kashala", icon: LinkedinIcon },
   { label: "Email", href: "mailto:kalonji905@gmail.com", icon: Mail },
   { label: "WhatsApp", href: "https://wa.me/243817655587", icon: WhatsAppIcon },
 ];
