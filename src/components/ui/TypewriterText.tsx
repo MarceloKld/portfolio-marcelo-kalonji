@@ -10,32 +10,19 @@ type TypewriterTextProps = {
 };
 
 /**
- * Effet "machine à écrire" : tape un mot lettre par lettre, fait une pause,
- * l'efface, puis enchaîne avec le mot suivant — en boucle.
- *
- * ⚠️ IMPORTANT : ce composant ne réserve PLUS d'espace minimum (suppression
- * de l'ancien "reserveSpace"/"minWidth"). Le texte s'affiche à sa largeur
- * naturelle, et la phrase qui l'entoure se réorganise fluidement selon
- * la longueur réelle du mot — exactement le comportement demandé.
- *
- * ⚠️ Pour que l'animation ne se bloque JAMAIS en changeant de langue,
- * ce composant doit être utilisé avec une prop React "key={locale}"
- * à l'endroit où on l'appelle (voir Hero.tsx et WhatsAppButton.tsx).
- * Cela force React à recréer le composant à zéro à chaque changement
- * de langue, plutôt que de réutiliser un état interne devenu incohérent.
+ * Effet machine à écrire en boucle.
+ * Utiliser avec key={locale} pour éviter les blocages au changement de langue.
  */
 export function TypewriterText({
   words,
-  typingSpeed = 70,
-  deletingSpeed = 40,
-  pauseDuration = 1500,
+  typingSpeed = 65,
+  deletingSpeed = 38,
+  pauseDuration = 1600,
 }: TypewriterTextProps) {
   const [wordIndex, setWordIndex] = useState(0);
   const [charCount, setCharCount] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  // Array.from() découpe le texte en "vrais" caractères visuels,
-  // emojis compris (contrairement à word.split("") qui peut les casser)
   const charactersPerWord = useMemo(
     () => words.map((w) => Array.from(w)),
     [words]
@@ -61,16 +48,25 @@ export function TypewriterText({
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [charCount, isDeleting, wordIndex, charactersPerWord, words.length, typingSpeed, deletingSpeed, pauseDuration]);
+  }, [
+    charCount,
+    isDeleting,
+    wordIndex,
+    charactersPerWord,
+    words.length,
+    typingSpeed,
+    deletingSpeed,
+    pauseDuration,
+  ]);
 
-  const displayedText = charactersPerWord[wordIndex].slice(0, charCount).join("");
+  const displayedText = charactersPerWord[wordIndex]
+    .slice(0, charCount)
+    .join("");
 
-  // Plus de "minWidth" : le span prend uniquement la largeur dont il a
-  // réellement besoin, donc plus aucun grand vide pour les mots courts.
   return (
     <span className="inline-block text-left">
       {displayedText}
-      <span className="animate-blink ml-0.5 inline-block h-[0.9em] w-[2px] translate-y-[0.1em] bg-[var(--accent)]" />
+      <span className="ml-0.5 inline-block h-[0.9em] w-[2px] translate-y-[0.1em] animate-blink bg-[var(--accent)]" />
     </span>
   );
 }
