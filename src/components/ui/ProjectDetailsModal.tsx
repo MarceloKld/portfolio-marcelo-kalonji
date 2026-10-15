@@ -14,15 +14,14 @@ type ProjectDetailsModalProps = {
 };
 
 /**
- * Contenu complet affiché dans la modale d'un projet :
- * - Colonne gauche : carrousel photo (couverture + galerie), "collé" (sticky)
- *   pendant que la colonne droite défile, pour garder les visuels à l'œil
- * - Colonne droite : audit détaillé (vue d'ensemble, stats, fonctionnalités,
- *   rôles & sécurité si disponible, stack technique, lien démo si disponible)
- *
- * Sur mobile : les 2 colonnes s'empilent naturellement (grid-cols-1).
+ * Contenu complet affiché dans la modale d'un projet.
  */
-export function ProjectDetailsModal({ isOpen, onClose, project, content }: ProjectDetailsModalProps) {
+export function ProjectDetailsModal({
+  isOpen,
+  onClose,
+  project,
+  content,
+}: ProjectDetailsModalProps) {
   const { t } = useLanguage();
 
   return (
@@ -30,13 +29,15 @@ export function ProjectDetailsModal({ isOpen, onClose, project, content }: Proje
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* ===== COLONNE GAUCHE : Galerie ===== */}
         <div className="p-5 sm:p-6 md:sticky md:top-0 md:self-start">
-          {/* La couverture est incluse en première position de la galerie */}
-          <ImageCarousel images={[project.cover, ...project.gallery]} alt={content.title} />
+          <ImageCarousel
+            images={[project.cover, ...project.gallery]}
+            alt={content.title}
+          />
         </div>
 
-        {/* ===== COLONNE DROITE : Audit détaillé ===== */}
-        <div className="flex flex-col gap-6 p-5 pt-0 sm:p-6 md:pt-6">
-          {/* En-tête : tags + titre */}
+        {/* ===== COLONNE DROITE : Contenu ===== */}
+        <div className="flex flex-col gap-7 p-5 pt-0 sm:p-6 md:pt-6">
+          {/* En-tête */}
           <div>
             <div className="flex flex-wrap items-center gap-2">
               <span className="rounded-full border border-[var(--border-color)] px-3 py-1 text-xs font-medium text-[var(--foreground)]/70">
@@ -47,28 +48,28 @@ export function ProjectDetailsModal({ isOpen, onClose, project, content }: Proje
                 {content.status}
               </span>
             </div>
-            <h2 className="mt-3 text-xl font-bold leading-snug text-[var(--foreground)] sm:text-2xl">
+            <h2 className="mt-3 text-xl font-bold leading-snug tracking-tight text-[var(--foreground)] sm:text-2xl">
               {content.title}
             </h2>
           </div>
 
           {/* Vue d'ensemble */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--accent)]">
               {t.projects.modalOverviewTitle}
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-[var(--foreground)]/70">
+            <p className="mt-2.5 text-sm leading-relaxed text-[var(--foreground)]/70">
               {content.modal.overview}
             </p>
           </div>
 
-          {/* Statistiques chiffrées (optionnel — pas tous les projets en ont) */}
+          {/* Statistiques */}
           {content.modal.stats && (
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               {content.modal.stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-2xl border border-[var(--border-color)] p-3 text-center"
+                  className="rounded-2xl border border-[var(--border-color)] bg-[var(--surface)]/50 p-3.5 text-center transition-colors duration-300 hover:border-[var(--accent)]/30"
                 >
                   <p className="text-lg font-bold text-[var(--foreground)] sm:text-xl">
                     {stat.value}
@@ -83,17 +84,20 @@ export function ProjectDetailsModal({ isOpen, onClose, project, content }: Proje
 
           {/* Fonctionnalités clés */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--accent)]">
               {t.projects.modalFeaturesTitle}
             </h3>
             <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {content.modal.features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="rounded-2xl border border-[var(--border-color)] p-4"
+                  className="group/feature rounded-2xl border border-[var(--border-color)] p-4 transition-all duration-300 hover:border-[var(--accent)]/30 hover:bg-[var(--accent)]/[0.03]"
                 >
                   <p className="flex items-start gap-2 text-sm font-semibold text-[var(--foreground)]">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent)]" />
+                    <Check
+                      className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent)] transition-transform duration-300 group-hover/feature:scale-110"
+                      strokeWidth={2.5}
+                    />
                     {feature.title}
                   </p>
                   <p className="mt-1.5 text-xs leading-relaxed text-[var(--foreground)]/60">
@@ -104,43 +108,63 @@ export function ProjectDetailsModal({ isOpen, onClose, project, content }: Proje
             </div>
           </div>
 
-          {/* Rôles & sécurité (optionnel — uniquement KIN ALERT et KIM.IA) */}
+          {/* Rôles & sécurité */}
           {content.modal.roles && (
             <div>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
+              <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--accent)]">
                 {t.projects.modalRolesTitle}
               </h3>
 
-              {/* Version TABLEAU : visible uniquement à partir de "md" (tablette+) */}
-              <div className="mt-3 hidden overflow-x-auto rounded-2xl border border-[var(--border-color)] md:block">
+              {/* Tableau desktop */}
+              <div className="mt-3 hidden overflow-hidden rounded-2xl border border-[var(--border-color)] md:block">
                 <table className="w-full text-left text-xs">
                   <thead className="bg-[var(--surface)] text-[var(--foreground)]/60">
                     <tr>
-                      <th className="px-4 py-3 font-medium">{t.projects.modalRoleColumns.role}</th>
-                      <th className="px-4 py-3 font-medium">{t.projects.modalRoleColumns.scope}</th>
-                      <th className="px-4 py-3 font-medium">{t.projects.modalRoleColumns.auth}</th>
+                      <th className="px-4 py-3 font-medium">
+                        {t.projects.modalRoleColumns.role}
+                      </th>
+                      <th className="px-4 py-3 font-medium">
+                        {t.projects.modalRoleColumns.scope}
+                      </th>
+                      <th className="px-4 py-3 font-medium">
+                        {t.projects.modalRoleColumns.auth}
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     {content.modal.roles.map((r) => (
-                      <tr key={r.role} className="border-t border-[var(--border-color)]">
-                        <td className="px-4 py-3 font-medium text-[var(--foreground)]">{r.role}</td>
-                        <td className="px-4 py-3 text-[var(--foreground)]/70">{r.scope}</td>
-                        <td className="px-4 py-3 text-[var(--foreground)]/50">{r.auth}</td>
+                      <tr
+                        key={r.role}
+                        className="border-t border-[var(--border-color)] transition-colors duration-200 hover:bg-[var(--accent)]/[0.03]"
+                      >
+                        <td className="px-4 py-3 font-medium text-[var(--foreground)]">
+                          {r.role}
+                        </td>
+                        <td className="px-4 py-3 text-[var(--foreground)]/70">
+                          {r.scope}
+                        </td>
+                        <td className="px-4 py-3 text-[var(--foreground)]/50">
+                          {r.auth}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
 
-              {/* Version CARTES EMPILÉES : visible uniquement sur mobile
-                  (un tableau large serait illisible sur petit écran, même
-                  avec un scroll horizontal) */}
+              {/* Cartes mobile */}
               <div className="mt-3 flex flex-col gap-3 md:hidden">
                 {content.modal.roles.map((r) => (
-                  <div key={r.role} className="rounded-2xl border border-[var(--border-color)] p-4">
-                    <p className="text-sm font-semibold text-[var(--foreground)]">{r.role}</p>
-                    <p className="mt-1 text-xs text-[var(--foreground)]/60">{r.scope}</p>
+                  <div
+                    key={r.role}
+                    className="rounded-2xl border border-[var(--border-color)] p-4"
+                  >
+                    <p className="text-sm font-semibold text-[var(--foreground)]">
+                      {r.role}
+                    </p>
+                    <p className="mt-1 text-xs text-[var(--foreground)]/60">
+                      {r.scope}
+                    </p>
                     <p className="mt-2 text-[10px] uppercase tracking-wide text-[var(--foreground)]/40">
                       {r.auth}
                     </p>
@@ -152,14 +176,14 @@ export function ProjectDetailsModal({ isOpen, onClose, project, content }: Proje
 
           {/* Stack technique */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--accent)]">
               {t.projects.modalTechTitle}
             </h3>
             <div className="mt-3 flex flex-wrap gap-2">
               {content.modal.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-full border border-[var(--border-color)] bg-[var(--surface)] px-3 py-1.5 text-xs font-medium text-[var(--foreground)]/80"
+                  className="rounded-full border border-[var(--border-color)] bg-[var(--surface)] px-3 py-1.5 text-xs font-medium text-[var(--foreground)]/80 transition-colors duration-300 hover:border-[var(--accent)]/40 hover:text-[var(--foreground)]"
                 >
                   {tech}
                 </span>
@@ -167,27 +191,27 @@ export function ProjectDetailsModal({ isOpen, onClose, project, content }: Proje
             </div>
           </div>
 
-          {/* Liens externes (optionnel — KIN ALERT, KIM.IA, Jolka) */}
-{project.links && project.links.length > 0 && (
-  <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-    {project.links.map((link, i) => (
-      <a
-        key={link.url}
-        href={link.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`flex flex-1 items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-transform hover:scale-[1.02] ${
-          i === 0
-            ? "bg-[var(--foreground)] text-[var(--background)]"
-            : "border border-[var(--border-color)] text-[var(--foreground)]"
-        }`}
-      >
-        {t.projects[link.labelKey]}
-        <ExternalLink size={15} />
-      </a>
-    ))}
-  </div>
-)}
+          {/* Liens externes */}
+          {project.links && project.links.length > 0 && (
+            <div className="mt-2 flex flex-col gap-3 sm:flex-row">
+              {project.links.map((link, i) => (
+                <a
+                  key={link.url}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex flex-1 items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] ${
+                    i === 0
+                      ? "bg-[var(--foreground)] text-[var(--background)] hover:bg-[var(--accent)] hover:text-black"
+                      : "border border-[var(--border-color)] text-[var(--foreground)] hover:border-[var(--accent)]/50"
+                  }`}
+                >
+                  {t.projects[link.labelKey]}
+                  <ExternalLink size={15} />
+                </a>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </Modal>

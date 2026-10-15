@@ -6,44 +6,48 @@ import { ProjectCard } from "@/components/ui/ProjectCard";
 import { PROJECTS_META } from "@/data/projects";
 import type { ProjectContent } from "@/types";
 
-const STAGGER_DELAY = 120;
+const STAGGER_DELAY = 130;
 
 export function Projects() {
   const { t } = useLanguage();
 
   return (
-    <section id="projets" className="relative px-4 py-20 sm:px-6 sm:py-28 lg:px-10">
+    <section
+      id="projets"
+      className="relative overflow-hidden px-4 py-20 sm:px-6 sm:py-24 lg:px-10 lg:py-28"
+    >
+      {/* Soft glow discret */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-0 top-1/4 -z-10 h-[420px] w-[500px] rounded-full bg-[var(--accent)] opacity-[0.035] blur-[110px]"
+      />
+
       <div className="mx-auto max-w-7xl">
-        {/* === EN-TÊTE DE SECTION === */}
-        <Reveal>
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
-            {t.projects.sectionLabel}
-          </span>
-        </Reveal>
+        {/* === EN-TÊTE === */}
+        <div className="max-w-2xl">
+          <Reveal>
+            <span className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
+              <span className="h-px w-6 bg-[var(--accent)]/60" />
+              {t.projects.sectionLabel}
+            </span>
+          </Reveal>
 
-        <Reveal delay={100}>
-          <h2 className="mt-3 text-2xl font-bold leading-tight text-[var(--foreground)] sm:text-4xl">
-            {t.projects.sectionTitle}
-          </h2>
-        </Reveal>
+          <Reveal delay={90}>
+            <h2 className="mt-4 text-2xl font-bold tracking-tight text-[var(--foreground)] sm:text-3xl md:text-4xl">
+              {t.projects.sectionTitle}
+            </h2>
+          </Reveal>
 
-        <Reveal delay={200}>
-          <p className="mt-4 max-w-xl text-sm text-[var(--foreground)]/60 sm:text-base">
-            {t.projects.sectionSubtitle}
-          </p>
-        </Reveal>
+          <Reveal delay={160}>
+            <p className="mt-4 text-[15px] leading-relaxed text-[var(--foreground)]/60 sm:text-base">
+              {t.projects.sectionSubtitle}
+            </p>
+          </Reveal>
+        </div>
 
-        {/* 
-          Grille à 2 colonnes (desktop) plutôt que 3 : les cartes de projets
-          contiennent une image + beaucoup de texte, 2 colonnes larges
-          restent plus lisibles que 3 colonnes trop resserrées.
-        */}
-        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
+        {/* === GRILLE DES PROJETS === */}
+        <div className="mt-14 grid grid-cols-1 gap-8 sm:mt-16 md:grid-cols-2 lg:gap-10">
           {PROJECTS_META.map((project, index) => {
-            // "as ProjectContent" : chaque projet a une forme de contenu
-            // légèrement différente (stats/roles optionnels selon le projet),
-            // ce cast indique simplement à TypeScript de faire confiance
-            // à la structure définie dans nos fichiers de traduction.
             const content = t.projects.items[project.id] as ProjectContent;
 
             return (

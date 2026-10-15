@@ -14,57 +14,62 @@ type ProjectCardProps = {
 };
 
 /**
- * Carte de projet affichée dans la grille. Gère elle-même l'ouverture
- * de sa propre modale (état local "isOpen") — architecture simple et
- * autonome, pas besoin de faire remonter l'état au composant parent.
- *
- * Réutilise SpotlightCard (créé en Phase 4) pour le halo au survol,
- * et le même effet "grayscale → couleur" que la photo du Hero,
- * pour une cohérence visuelle sur tout le site.
+ * Carte de projet affichée dans la grille.
+ * Gère elle-même l'ouverture de sa propre modale.
  */
 export function ProjectCard({ project, content }: ProjectCardProps) {
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
 
-  // On n'affiche que les 4 premières technologies sur la carte,
-  // le reste est résumé par un badge "+N" (la liste complète est dans la modale)
   const visibleTechs = content.modal.techStack.slice(0, 4);
   const extraTechCount = content.modal.techStack.length - visibleTechs.length;
 
   return (
     <>
-      <SpotlightCard className="glass group flex h-full flex-col overflow-hidden rounded-3xl transition-transform duration-300 hover:-translate-y-1">
-        {/* Image de couverture */}
+      <SpotlightCard
+        className="glass group flex h-full flex-col overflow-hidden rounded-3xl transition-all duration-500
+                   hover:-translate-y-2 hover:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)]"
+      >
+        {/* ===== Image de couverture ===== */}
         <div className="relative aspect-video w-full overflow-hidden">
           <Image
             src={project.cover}
             alt={content.title}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover grayscale brightness-95 transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100"
+            className="object-cover grayscale brightness-95 transition-all duration-700 ease-out
+                       group-hover:scale-110 group-hover:grayscale-0 group-hover:brightness-100"
           />
-          {/* Tag superposé sur l'image */}
-          <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/40 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+
+          {/* Overlay gradient au hover */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          />
+
+          {/* Tag */}
+          <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-xs font-medium text-white backdrop-blur-md transition-transform duration-300 group-hover:scale-105">
             {content.tag}
           </span>
         </div>
 
-        {/* Contenu texte */}
+        {/* ===== Contenu texte ===== */}
         <div className="flex flex-1 flex-col p-6 sm:p-7">
-          <h3 className="text-lg font-semibold leading-snug text-[var(--foreground)] sm:text-xl">
+          <h3 className="text-lg font-semibold leading-snug text-[var(--foreground)] transition-colors duration-300 group-hover:text-[var(--foreground)] sm:text-xl">
             {content.title}
           </h3>
 
-          <p className="mt-2 text-sm leading-relaxed text-[var(--foreground)]/60">
+          <p className="mt-2 text-sm leading-relaxed text-[var(--foreground)]/60 transition-colors duration-300 group-hover:text-[var(--foreground)]/75">
             {content.shortDescription}
           </p>
 
-          {/* Badges de technologies */}
+          {/* Badges technologies */}
           <div className="mt-4 flex flex-wrap gap-2">
             {visibleTechs.map((tech) => (
               <span
                 key={tech}
-                className="rounded-full border border-[var(--border-color)] px-2.5 py-1 text-xs text-[var(--foreground)]/70"
+                className="rounded-full border border-[var(--border-color)] px-2.5 py-1 text-xs text-[var(--foreground)]/70 transition-all duration-300
+                           group-hover:border-[var(--accent)]/30 group-hover:text-[var(--foreground)]/85"
               >
                 {tech}
               </span>
@@ -76,8 +81,8 @@ export function ProjectCard({ project, content }: ProjectCardProps) {
             )}
           </div>
 
-          {/* Pied de carte : statut + bouton d'ouverture de la modale */}
-          <div className="mt-6 flex items-center justify-between border-t border-[var(--border-color)] pt-5">
+          {/* Pied de carte */}
+          <div className="mt-6 flex items-center justify-between border-t border-[var(--border-color)] pt-5 transition-colors duration-300 group-hover:border-[var(--accent)]/20">
             <span className="flex items-center gap-1.5 text-xs font-medium text-[var(--foreground)]/60">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
               {content.status}
@@ -85,9 +90,12 @@ export function ProjectCard({ project, content }: ProjectCardProps) {
 
             <button
               onClick={() => setIsOpen(true)}
-              className="cursor-pointer flex items-center gap-1.5 text-sm font-medium text-[var(--foreground)] transition-colors hover:text-[var(--accent)]"
+              className="group/btn flex cursor-pointer items-center gap-1.5 text-sm font-medium text-[var(--foreground)] transition-all duration-300 hover:text-[var(--accent)]"
             >
-              <Maximize2 size={14} />
+              <Maximize2
+                size={14}
+                className="transition-transform duration-300 group-hover/btn:scale-110"
+              />
               {t.projects.viewMore}
             </button>
           </div>
