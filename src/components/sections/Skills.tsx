@@ -1,13 +1,5 @@
 "use client";
 
-/**
- * Skills.tsx — Section "Compétences"
- * -----------------------------------
- * Layout 2 colonnes desktop (1 colonne mobile) :
- *  - gauche : barres de progression animées ("Développement")
- *  - droite : ticker défilant de technologies sur 2 lignes,
- *             chacune défilant dans un sens opposé ("Technologies")
- */
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { Reveal } from "@/components/ui/Reveal";
 import { Marquee } from "@/components/ui/Marquee";
@@ -17,63 +9,111 @@ import { DEV_SKILLS, TECH_STACK } from "@/data/skills";
 export function Skills() {
   const { t } = useLanguage();
 
-  // On coupe le tableau en 2 pour avoir 2 lignes de ticker différentes
   const half = Math.ceil(TECH_STACK.length / 2);
   const firstRow = TECH_STACK.slice(0, half);
   const secondRow = TECH_STACK.slice(half);
 
   return (
-    <section id="competences" className="relative px-5 py-24 sm:px-8 lg:px-16">
-      <Reveal className="mx-auto max-w-3xl text-center">
-        <p className="text-sm font-semibold uppercase tracking-widest text-[var(--accent)]">
-          {t.skills.eyebrow}
-        </p>
-        <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">{t.skills.title}</h2>
-        <p className="mt-4 text-[var(--foreground)]/60">{t.skills.subtitle}</p>
-      </Reveal>
-
-      <div className="mx-auto mt-14 grid max-w-6xl gap-14 lg:grid-cols-2">
-        {/* Colonne gauche : barres de progression */}
+    <section
+      id="competences"
+      className="relative px-4 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-28"
+    >
+      {/* ===== EN-TÊTE ===== */}
+      <div className="mx-auto max-w-3xl text-center">
         <Reveal>
-          <h3 className="mb-6 text-lg font-bold">{t.skills.devTitle}</h3>
-          <div className="space-y-6">
-            {DEV_SKILLS.map((skill) => (
-              <SkillBar key={skill.name} name={skill.name} percentage={skill.percentage} />
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
+            {t.skills.eyebrow}
+          </p>
+        </Reveal>
+
+        <Reveal delay={80}>
+          <h2 className="mt-3 text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl">
+            {t.skills.title}
+          </h2>
+        </Reveal>
+
+        <Reveal delay={140}>
+          <p className="mx-auto mt-3 max-w-xl text-sm text-[var(--foreground)]/60 sm:text-base">
+            {t.skills.subtitle}
+          </p>
+        </Reveal>
+      </div>
+
+      {/* ===== CONTENU ===== */}
+      <div className="mx-auto mt-12 max-w-6xl space-y-14 sm:mt-14 lg:mt-16 lg:grid lg:grid-cols-2 lg:gap-16 lg:space-y-0">
+        
+        {/* ----- Barres de progression ----- */}
+        <div>
+          <Reveal>
+            <h3 className="mb-5 text-base font-bold sm:text-lg">
+              {t.skills.devTitle}
+            </h3>
+          </Reveal>
+
+          <div className="space-y-5">
+            {DEV_SKILLS.map((skill, index) => (
+              <Reveal key={skill.name} delay={index * 60}>
+                <SkillBar
+                  name={skill.name}
+                  percentage={skill.percentage}
+                />
+              </Reveal>
             ))}
           </div>
-        </Reveal>
+        </div>
 
-        {/* Colonne droite : Tech Stack Ticker */}
-        <Reveal delay={150}>
-          <h3 className="mb-6 text-lg font-bold">{t.skills.techTitle}</h3>
-          <div className="space-y-4 overflow-hidden">
-            <Marquee speed={100}>
-              {firstRow.map((tech) => (
-                <TechBadge key={tech.name} tech={tech} />
-              ))}
-            </Marquee>
-            <Marquee speed={90} reverse>
-              {secondRow.map((tech) => (
-                <TechBadge key={tech.name} tech={tech} />
-              ))}
-            </Marquee>
+        {/* ----- Tech Stack ----- */}
+        <div>
+          <Reveal delay={100}>
+            <h3 className="mb-5 text-base font-bold sm:text-lg">
+              {t.skills.techTitle}
+            </h3>
+          </Reveal>
+
+          <div className="space-y-4">
+            {/* Ligne 1 */}
+            <div className="relative overflow-hidden">
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-[var(--background)] to-transparent" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-[var(--background)] to-transparent" />
+              
+              <Marquee speed={100} repeat={8}>
+                {firstRow.map((tech) => (
+                  <TechBadge key={tech.name} tech={tech} />
+                ))}
+              </Marquee>
+            </div>
+
+            {/* Ligne 2 */}
+            <div className="relative overflow-hidden">
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-[var(--background)] to-transparent" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-[var(--background)] to-transparent" />
+              
+              <Marquee speed={90} reverse repeat={8}>
+                {secondRow.map((tech) => (
+                  <TechBadge key={tech.name} tech={tech} />
+                ))}
+              </Marquee>
+            </div>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
 }
 
-/** Petite pilule icône + nom, réutilisée dans les 2 lignes du ticker */
 function TechBadge({ tech }: { tech: (typeof TECH_STACK)[number] }) {
   const Icon = tech.icon;
+
   return (
     <div
-      className="mx-2 flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium"
-      style={{ borderColor: "var(--border-color)", backgroundColor: "var(--surface)" }}
+      className="mx-1.5 flex shrink-0 items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-medium"
+      style={{
+        borderColor: "var(--border-color)",
+        backgroundColor: "var(--surface)",
+      }}
     >
-      <Icon className="h-4 w-4 text-[var(--accent)]" />
-      {tech.name}
+      <Icon className="h-3.5 w-3.5 shrink-0 text-[var(--accent)]" />
+      <span className="whitespace-nowrap">{tech.name}</span>
     </div>
   );
 }

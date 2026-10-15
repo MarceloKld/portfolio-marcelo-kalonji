@@ -1,12 +1,5 @@
 "use client";
 
-/**
- * SkillBar.tsx
- * ------------
- * Barre de progression dont la largeur ne s'anime QUE lorsqu'elle entre
- * dans le viewport (useInView, déjà existant dans le projet). Ça évite
- * un effet "statique" et donne une impression de chargement au scroll.
- */
 import { useInView } from "@/lib/useInView";
 
 type SkillBarProps = {
@@ -19,7 +12,7 @@ export function SkillBar({ name, percentage }: SkillBarProps) {
 
   return (
     <div ref={ref}>
-      <div className="mb-2 flex items-center justify-between text-sm">
+      <div className="mb-1.5 flex items-center justify-between text-sm sm:mb-2">
         <span className="text-[var(--foreground)]/80">{name}</span>
         <span className="font-semibold text-[var(--accent)]">{percentage}%</span>
       </div>
