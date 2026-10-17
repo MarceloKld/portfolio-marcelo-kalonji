@@ -6,6 +6,7 @@ import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import { PreloaderProvider } from "@/components/providers/PreloaderProvider"; // NOUVEAU
 import { Preloader } from "@/components/ui/Preloader";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { NetworkStatus } from "@/components/ui/NetworkStatus";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -38,6 +39,7 @@ export default function RootLayout({
                 ET le contenu de la page, pour qu'ils partagent le même signal */}
             <PreloaderProvider>
               <Preloader />
+              <NetworkStatus />
               {children}
               <WhatsAppButton />
             </PreloaderProvider>
