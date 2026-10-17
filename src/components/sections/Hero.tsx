@@ -11,6 +11,7 @@ import { Magnetic } from "@/components/ui/Magnetic";
 import { SocialPill } from "@/components/ui/SocialPill";
 import { SOCIAL_LINKS } from "@/data/socials";
 import { Marquee } from "@/components/ui/Marquee";
+import { TechOrbit } from "@/components/ui/TechOrbit";
 
 /* ════════════════════════════════════════════════════════════════
    🎛️  ZONE DE RÉGLAGES — Marquee du nom & Photo
@@ -106,6 +107,8 @@ export function Hero() {
                            group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100 group-hover:drop-shadow-[0_25px_50px_rgba(0,0,0,0.4)]"
               />
             </div>
+            {/* ===== AJOUT ICI ===== */}
+    <TechOrbit />
           </div>
         </EntranceReveal>
 
