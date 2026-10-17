@@ -10,7 +10,7 @@ import type { ProjectMeta } from "@/types";
 const GALLERY_COUNT = {
   unikin: 7,
   kinalert: 17,
-  kimia: 6,
+  kimiaa: 6,
   jolka: 6,
 };
 
@@ -51,8 +51,8 @@ export const PROJECTS_META: ProjectMeta[] = [
 {
   id: "kimia",
   // ⚠️ Seule cette couverture est en .png — les autres sont en .webp
-  cover: "/images/projects/projet-3.png",
-  gallery: generateGallery("kimia", GALLERY_COUNT.kimia),
+  cover: "/images/projects/projet-3.webp",
+  gallery: generateGallery("kimiaa", GALLERY_COUNT.kimiaa),
   links: [{ labelKey: "viewDemo", url: "https://kimia-care.netlify.app/" }],
 },
 {
