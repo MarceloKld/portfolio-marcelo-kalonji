@@ -24,7 +24,7 @@ const NAME_BAND_TOP = "top-0";
 const NAME_BAND_HEIGHT = "h-[32%] sm:h-[36%]";
 const PHOTO_HEIGHT = "h-[94%] sm:h-[96%]";
 const PHOTO_WIDTH =
-  "w-[58%] sm:w-[44%] md:w-[38%] max-w-[300px] sm:max-w-[340px] md:max-w-[380px]";
+  "w-[58%] sm:w-[44%] md:w-[48%] max-w-[300px] sm:max-w-[340px] md:max-w-[450px]";
 const BLOCK_MIN_HEIGHT = "min-h-[280px] sm:min-h-[360px]";
 const TITLE_FONT_SIZE = "text-sm sm:text-base md:text-lg";
 
@@ -98,7 +98,7 @@ export function Hero() {
               className={`absolute inset-x-0 bottom-0 z-10 mx-auto cursor-pointer ${PHOTO_HEIGHT} ${PHOTO_WIDTH} [mask-image:linear-gradient(to_bottom,black_78%,transparent_100%)]`}
             >
               <Image
-                src="/images/profile/marcelo.webp"
+                src="/images/profile/marcelo4.webp"
                 alt="Portrait de Marcelo Kalonji Kashala, Concepteur et Développeur Web"
                 fill
                 priority
