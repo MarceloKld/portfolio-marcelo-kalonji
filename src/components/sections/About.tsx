@@ -45,7 +45,7 @@ export function About() {
                 style={{ borderColor: "var(--border-color)" }}
               >
                 <Image
-                  src="/images/profile/marcelo3.webp"
+                  src="/images/profile/marcelo5.webp"
                   alt="Marcelo Kalonji Kashala en présentation"
                   fill
                   className="object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
