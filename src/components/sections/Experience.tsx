@@ -1,15 +1,19 @@
 "use client";
 
+
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { Reveal } from "@/components/ui/Reveal";
 import { TimelineItem } from "@/components/ui/TimelineItem";
 import { EXPERIENCE_META } from "@/data/experience";
+import { ExperienceGallery } from "@/components/ui/ExperienceGallery";
 
 /* ════════════════════════════════════════════════════════════════
    🎛️  ZONE DE RÉGLAGES
    ════════════════════════════════════════════════════════════════ */
 
 const STAGGER_DELAY = 140;
+
+
 
 /* ════════════════════════════════════════════════════════════════ */
 
@@ -32,7 +36,7 @@ export function Experience() {
         <div className="mb-16 sm:mb-20">
           <Reveal>
             <span className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
-              <span className="h-px w-8 bg-[var(--accent)]/70 transition-all duration-500 group-hover:w-12" />
+              <span className="h-px w-8 bg-[var(--accent)]/70" />
               {t.experience.sectionLabel}
             </span>
           </Reveal>
@@ -52,7 +56,6 @@ export function Experience() {
 
         {/* === TIMELINE === */}
         <div className="relative">
-          {/* Ligne verticale premium */}
           <div
             aria-hidden="true"
             className="absolute bottom-6 left-5 top-6 w-[2px] bg-gradient-to-b from-transparent via-[var(--accent)]/50 to-transparent sm:left-6"
@@ -64,15 +67,11 @@ export function Experience() {
 
               return (
                 <Reveal key={exp.id} delay={index * STAGGER_DELAY}>
-                  {/* Wrapper qui gère le hover */}
                   <div className="group relative">
-                    {/* Effet de lumière au hover */}
                     <div
                       aria-hidden="true"
                       className="pointer-events-none absolute -inset-4 rounded-2xl bg-[var(--accent)]/0 opacity-0 blur-xl transition-all duration-500 group-hover:bg-[var(--accent)]/5 group-hover:opacity-100"
                     />
-
-                    {/* Contenu avec animation de lift */}
                     <div className="relative transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:scale-[1.01]">
                       <TimelineItem
                         icon={exp.icon}
@@ -88,6 +87,24 @@ export function Experience() {
             })}
           </div>
         </div>
+
+       {/* === ALBUM PHOTO (Cover Flow) === */}
+<div className="mt-20 sm:mt-24">
+  <Reveal>
+    <h3 className="text-center text-lg font-semibold text-[var(--foreground)] sm:text-xl">
+      {t.experience.galleryTitle}
+    </h3>
+    <p className="mt-2 text-center text-sm text-[var(--foreground)]/55">
+      {t.experience.gallerySubtitle}
+    </p>
+  </Reveal>
+
+  <div className="mt-10">
+    <Reveal delay={100}>
+      <ExperienceGallery />
+    </Reveal>
+  </div>
+</div>
       </div>
     </section>
   );

@@ -68,6 +68,8 @@
     "sectionLabel": "Background",
     "sectionTitle": "My hands-on experience",
     "sectionSubtitle": "Real-world missions, from code to project coordination.",
+    "galleryTitle": "On the field",
+    "gallerySubtitle": "A few moments captured during my missions.",
     "items": {
       "kimia": {
         "role": "Freelance Web Developer (PHP / Laravel)",

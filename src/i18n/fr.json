@@ -68,6 +68,8 @@
     "sectionLabel": "Parcours",
     "sectionTitle": "Mon expérience sur le terrain",
     "sectionSubtitle": "Des missions concrètes, du code à la coordination de projets.",
+    "galleryTitle": "Sur le terrain",
+  "gallerySubtitle": "Quelques moments capturés pendant mes missions.",
     "items": {
       "kimia": {
         "role": "Développeur Web Freelance (PHP / Laravel)",

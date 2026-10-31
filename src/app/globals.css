@@ -202,3 +202,11 @@ section[id] {
 .spotlight-card:hover::before {
   opacity: 1;
 }
+
+.experience-coverflow .swiper-slide {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.experience-coverflow .swiper-slide-active {
+  z-index: 10;
+}
