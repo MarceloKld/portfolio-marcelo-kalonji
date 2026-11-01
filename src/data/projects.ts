@@ -11,7 +11,7 @@ const GALLERY_COUNT = {
   unikin: 7,
   kinalert: 17,
   kimiaa: 6,
-  leon: 5,
+  leoon: 5,
 };
 
 /**
@@ -58,7 +58,7 @@ export const PROJECTS_META: ProjectMeta[] = [
 {
   id: "leon",
   cover: "/images/projects/projet-6.webp",
-  gallery: generateGallery("leon", GALLERY_COUNT.leon),
+  gallery: generateGallery("leoon", GALLERY_COUNT.leoon),
   links: [{ labelKey: "viewDemo", url: "https://mdautowash-by-leo.vercel.app/" }],
 },
 ];
