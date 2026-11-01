@@ -139,7 +139,7 @@
             { "title": "Gestion des Départements", "description": "Contrôle d'accès ciblé permettant d'ouvrir ou de bloquer la consultation des résultats par promotion." },
             { "title": "Délivrance de Certificats", "description": "Génération de badges d'admission, téléchargeables au format PDF ou partageables via WhatsApp." }
           ],
-          "techStack": ["React", "Tailwind CSS", "C# / .NET Core", "Firebase", "SQL Server", "QR Code Engine"]
+          "techStack": ["Html", "CSS","JavaScript", "C# / .NET Core", "Firebase", "QR Code Engine"]
         }
       },
       "kinalert": {
@@ -160,7 +160,7 @@
             { "role": "Gestionnaire / Modérateur", "scope": "Modération du flux d'incidents, suivi des activités, gestion basique des utilisateurs.", "auth": "Sanctum Admin Token (manager)" },
             { "role": "Admin / Super-Admin", "scope": "Droits globaux, configuration du seuil de confirmation, gestion des gestionnaires, audit logs.", "auth": "Sanctum Admin Token (admin)" }
           ],
-          "techStack": ["Laravel 11", "Next.js", "React Native", "REST API", "Leaflet / GIS", "Sanctum Auth"]
+          "techStack": ["Laravel 11", "Next.js", "React", "REST API", "Docker", "SQL"]
         }
       },
       "kimia": {
@@ -188,7 +188,7 @@
             { "role": "Vendeur / Caissier POS", "scope": "Enregistrement des ventes, émission de factures, accès bloqué sur les lots périmés.", "auth": "Pin Code & Token de caisse" },
             { "role": "Fournisseur / Distributeur", "scope": "Consultation des demandes de réapprovisionnement, dépôt de catalogues.", "auth": "API Key Partenaire" }
           ],
-          "techStack": ["PHP 8.3", "Laravel 11", "React.js", "PostgreSQL", "REST API", "Sanctum", "Tailwind CSS"]
+          "techStack": ["PHP 8.3", "Laravel 11", "React.js", "PostgreSQL", "REST API", "Docker", "Tailwind CSS"]
         }
       },
       "leon": {
