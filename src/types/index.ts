@@ -29,7 +29,7 @@ export type ExperienceMeta = {
 
 // Les 4 identifiants doivent correspondre EXACTEMENT aux clés
 // utilisées dans fr.json / en.json sous "projects.items.<id>"
-export type ProjectId = "unikin" | "kinalert" | "kimia" | "jolka";
+export type ProjectId = "unikin" | "kinalert" | "kimia" | "leon";
 
 export type ProjectLink = {
   labelKey: "viewDemo" | "viewUserApp" | "viewAdminApp";
@@ -41,7 +41,7 @@ export type ProjectMeta = {
   id: ProjectId;
   cover: string;      // image principale de la carte
   gallery: string[];  // images supplémentaires affichées dans la modale
-  links?: ProjectLink[];   // lien externe, optionnel (ex: Jolka uniquement)
+  links?: ProjectLink[];   // lien externe, optionnel (ex: leon uniquement)
 };
 
 // Une statistique chiffrée affichée dans la modale (ex: "84% — Taux de réussite")

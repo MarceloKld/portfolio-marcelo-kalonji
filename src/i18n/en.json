@@ -191,29 +191,46 @@
           "techStack": ["PHP 8.3", "Laravel 11", "React.js", "PostgreSQL", "REST API", "Sanctum", "Tailwind CSS"]
         }
       },
-      "jolka": {
-        "title": "Jolka Beauty Collection",
-        "tag": "Commercial Website / E-Commerce",
-        "status": "Live / Completed",
-        "shortDescription": "An elegant e-commerce platform for a luxury perfume brand, offering a direct WhatsApp-connected ordering tunnel alongside a complete admin portal.",
-        "modal": {
-          "overview": "Jolka Beauty Collection is a custom e-commerce platform designed to showcase luxury, oriental-inspired fragrances. It pairs a refined digital showcase with an innovative ordering system redirected straight to WhatsApp.",
-          "stats": [
-            { "value": "22", "label": "Unique visitors" },
-            { "value": "8", "label": "Perfumes listed" },
-            { "value": "100%", "label": "Authentic" },
-            { "value": "Direct", "label": "WhatsApp tunnel" }
-          ],
-          "features": [
-            { "title": "Luxury Immersive Showcase", "description": "An elegant dark interface with gold accents, highlighting every fragrance creation." },
-            { "title": "Dynamic Catalog", "description": "Detailed product sheets with scent notes (Top, Heart, Base), volumes, prices and live stock." },
-            { "title": "WhatsApp Order Tunnel", "description": "A pre-filled reservation form generating a structured message to customer service." },
-            { "title": "Complete Back-Office", "description": "Analytics dashboard, catalog management and detailed order tracking." }
-          ],
-          "techStack": ["HTML5", "CSS3", "JavaScript ES6+", "Firebase"]
-        }
+      "leon": {
+       "title": "MD AutoWash — Home Car Wash",
+  "tag": "Web App / On-demand Service",
+  "status": "Live / Completed",
+  "shortDescription": "Home car wash booking platform with clear pricing packages and a built-in referral rewards program.",
+  "modal": {
+    "overview": "MD AutoWash is a web solution built for an on-demand home car wash service in the DRC. Customers can browse packages, book easily, and benefit from a structured referral system — all available as an installable Progressive Web App (PWA).",
+    "stats": [
+      { "value": "6", "label": "Wash packages" },
+      { "value": "$10–$50", "label": "Flexible pricing" },
+      { "value": "100%", "label": "At-home service" }
+    ],
+    "features": [
+      {
+        "title": "Package catalog",
+        "description": "Six clear offers (Express, Basic, Standard, Premium, VIP, Comfort) with transparent pricing and included services."
+      },
+      {
+        "title": "One-click booking",
+        "description": "Simple flow to select a package and confirm via QR code or direct contact."
+      },
+      {
+        "title": "Referral program",
+        "description": "Reward system (10% to 60%) based on wash type and number of referred clients — even without owning a car."
+      },
+      {
+        "title": "Installable app (PWA)",
+        "description": "Works like a native mobile app: quick install, smooth navigation, and an optimized experience outside the browser."
       }
-    }
+    ],
+    "techStack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "PWA"
+    ]
+  }
+}
+}
   },
   "skills": {
     "eyebrow": "Tech Stack",

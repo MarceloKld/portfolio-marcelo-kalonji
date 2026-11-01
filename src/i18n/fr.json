@@ -191,29 +191,46 @@
           "techStack": ["PHP 8.3", "Laravel 11", "React.js", "PostgreSQL", "REST API", "Sanctum", "Tailwind CSS"]
         }
       },
-      "jolka": {
-        "title": "Jolka Beauty Collection",
-        "tag": "Site Web Commercial / E-Commerce",
-        "status": "En ligne / Réalisé",
-        "shortDescription": "Plateforme e-commerce élégante pour une marque de parfums de luxe, proposant une prise de commande fluide et directe connectée à WhatsApp, associée à un portail d'administration complet.",
-        "modal": {
-          "overview": "Jolka Beauty Collection est une plateforme web e-commerce sur-mesure conçue pour valoriser des fragrances de luxe d'inspiration orientale. Elle associe une vitrine digitale raffinée à un système innovant de prise de commande directe réorientée vers WhatsApp.",
-          "stats": [
-            { "value": "22", "label": "Visiteurs uniques" },
-            { "value": "8", "label": "Parfums au catalogue" },
-            { "value": "100%", "label": "Authentique" },
-            { "value": "Direct", "label": "Tunnel WhatsApp" }
-          ],
-          "features": [
-            { "title": "Vitrine Immersion Luxe", "description": "Interface sombre élégante agrémentée de touches dorées, mettant en valeur chaque création parfumée." },
-            { "title": "Catalogue Dynamique", "description": "Fiches produits détaillées avec notes olfactives (Tête, Cœur, Fond), volumes, prix et stock en temps réel." },
-            { "title": "Tunnel de Commande WhatsApp", "description": "Formulaire de réservation pré-rempli générant un message structuré vers le service client." },
-            { "title": "Back-Office Complet", "description": "Dashboard analytique, gestion du catalogue et suivi détaillé des commandes clients." }
-          ],
-          "techStack": ["HTML5", "CSS3", "JavaScript ES6+", "Firebase"]
-        }
+      "leon": {
+       "title": "MD AutoWash — Lavage à domicile",
+  "tag": "Application Web / Service à la demande",
+  "status": "En ligne / Réalisé",
+  "shortDescription": "Plateforme de réservation de lavage automobile à domicile, avec formules tarifaires claires et un programme de parrainage intégré.",
+  "modal": {
+    "overview": "MD AutoWash est une solution web conçue pour un service de lavage de voitures à domicile en RDC. Elle permet aux clients de découvrir les formules, réserver facilement et profiter d’un système de parrainage rémunérateur, le tout accessible comme une application installable (PWA).",
+    "stats": [
+      { "value": "6", "label": "Formules de lavage" },
+      { "value": "10$–50$", "label": "Tarifs flexibles" },
+      { "value": "100%", "label": "À domicile" }
+    ],
+    "features": [
+      {
+        "title": "Catalogue de formules",
+        "description": "6 offres claires (Express, Basique, Standard, Premium, VIP, Confort) avec prix et prestations détaillées."
+      },
+      {
+        "title": "Réservation en un clic",
+        "description": "Parcours simple pour choisir une formule et confirmer via QR code ou contact direct."
+      },
+      {
+        "title": "Programme de parrainage",
+        "description": "Système de récompenses (10 % à 60 %) selon le type de lavage et le nombre de clients parrainés, même sans véhicule."
+      },
+      {
+        "title": "Application installable (PWA)",
+        "description": "Accessible comme une application native sur mobile : installation rapide, navigation fluide et expérience optimisée hors navigateur."
       }
-    }
+    ],
+    "techStack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "PWA"
+    ]
+  }
+}
+}
   },
   "skills": {
     "eyebrow": "Stack Technique",

@@ -11,7 +11,7 @@ const GALLERY_COUNT = {
   unikin: 7,
   kinalert: 17,
   kimiaa: 6,
-  jolka: 6,
+  leon: 5,
 };
 
 /**
@@ -56,9 +56,9 @@ export const PROJECTS_META: ProjectMeta[] = [
   links: [{ labelKey: "viewDemo", url: "https://kimia-care.netlify.app/" }],
 },
 {
-  id: "jolka",
-  cover: "/images/projects/projet-4.webp",
-  gallery: generateGallery("jolka", GALLERY_COUNT.jolka),
-  links: [{ labelKey: "viewDemo", url: "https://site-webnova.web.app/jolka" }],
+  id: "leon",
+  cover: "/images/projects/projet-6.webp",
+  gallery: generateGallery("leon", GALLERY_COUNT.leon),
+  links: [{ labelKey: "viewDemo", url: "https://mdautowash-by-leo.vercel.app/" }],
 },
 ];
