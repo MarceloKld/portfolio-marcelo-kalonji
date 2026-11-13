@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Marcelo Kalonji Kashala — Concepteur & Développeur Web",
+  title: "Marcelo Tech",
   description: "Je conçois, développe et déploie des solutions numériques performantes, fiables et évolutives.",
   keywords: ["développeur web", "Laravel", "Next.js", "React", "Kinshasa"],
   // AJOUT : déclaration explicite des icônes
