@@ -191,46 +191,85 @@
           "techStack": ["PHP 8.3", "Laravel 11", "React.js", "PostgreSQL", "REST API", "Sanctum", "Tailwind CSS"]
         }
       },
-      "leon": {
-       "title": "MD AutoWash — Home Car Wash",
-  "tag": "Web App / On-demand Service",
-  "status": "Live / Completed",
-  "shortDescription": "Home car wash booking platform with clear pricing packages and a built-in referral rewards program.",
-  "modal": {
-    "overview": "MD AutoWash is a web solution built for an on-demand home car wash service in the DRC. Customers can browse packages, book easily, and benefit from a structured referral system — all available as an installable Progressive Web App (PWA).",
-    "stats": [
-      { "value": "6", "label": "Wash packages" },
-      { "value": "$10–$50", "label": "Flexible pricing" },
-      { "value": "100%", "label": "At-home service" }
-    ],
-    "features": [
-      {
-        "title": "Package catalog",
-        "description": "Six clear offers (Express, Basic, Standard, Premium, VIP, Comfort) with transparent pricing and included services."
+           "leon": {
+        "title": "MD AutoWash — Home Car Wash",
+        "tag": "Web App / On-demand Service",
+        "status": "Live / Completed",
+        "shortDescription": "Home car wash booking platform with clear pricing packages and a built-in referral rewards program.",
+        "modal": {
+          "overview": "MD AutoWash is a web solution built for an on-demand home car wash service in the DRC. Customers can browse packages, book easily, and benefit from a structured referral system — all available as an installable Progressive Web App (PWA).",
+          "stats": [
+            { "value": "6", "label": "Wash packages" },
+            { "value": "$10–$50", "label": "Flexible pricing" },
+            { "value": "100%", "label": "At-home service" }
+          ],
+          "features": [
+            {
+              "title": "Package catalog",
+              "description": "Six clear offers (Express, Basic, Standard, Premium, VIP, Comfort) with transparent pricing and included services."
+            },
+            {
+              "title": "One-click booking",
+              "description": "Simple flow to select a package and confirm via QR code or direct contact."
+            },
+            {
+              "title": "Referral program",
+              "description": "Reward system (10% to 60%) based on wash type and number of referred clients — even without owning a car."
+            },
+            {
+              "title": "Installable app (PWA)",
+              "description": "Works like a native mobile app: quick install, smooth navigation, and an optimized experience outside the browser."
+            }
+          ],
+          "techStack": [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "PWA"
+          ]
+        }
       },
-      {
-        "title": "One-click booking",
-        "description": "Simple flow to select a package and confirm via QR code or direct contact."
-      },
-      {
-        "title": "Referral program",
-        "description": "Reward system (10% to 60%) based on wash type and number of referred clients — even without owning a car."
-      },
-      {
-        "title": "Installable app (PWA)",
-        "description": "Works like a native mobile app: quick install, smooth navigation, and an optimized experience outside the browser."
+      "bkj": {
+        "title": "BKJ Service — Catering & Yogurt",
+        "tag": "Commercial Website / Catering",
+        "status": "Live / Completed",
+        "shortDescription": "Showcase and ordering site for a Kinshasa catering service: weddings, birthdays, ceremonies, plus an artisanal yogurt line ordered via WhatsApp.",
+        "modal": {
+          "overview": "BKJ Service is the web platform of a catering business based in Kinshasa. It presents services (weddings, birthdays, events), menu packages (Essential, Comfort, Prestige), and lets customers order “Yaourt na biso” yogurts with checkout finalized on WhatsApp.",
+          "stats": [
+            { "value": "100+", "label": "Events delivered" },
+            { "value": "3,000+", "label": "Guests served" },
+            { "value": "5 yrs", "label": "Experience" }
+          ],
+          "features": [
+            {
+              "title": "Occasion-based catering",
+              "description": "Dedicated pages for weddings, birthdays and ceremonies, with what’s included and optional extras."
+            },
+            {
+              "title": "Menu packages",
+              "description": "Three clear packages (Essential, Comfort, Prestige) tailored to event size and type."
+            },
+            {
+              "title": "Yogurt ordering",
+              "description": "Yaourt na biso catalog (150 mL to 1 L) with a cart and prefilled WhatsApp order message."
+            },
+            {
+              "title": "Quote & WhatsApp contact",
+              "description": "Simple flow to request a quote or message WhatsApp directly, with no online payment."
+            }
+          ],
+          "techStack": [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "i18n (FR/EN)"
+          ]
+        }
       }
-    ],
-    "techStack": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "PWA"
-    ]
-  }
-}
-}
+    }
   },
   "skills": {
     "eyebrow": "Tech Stack",

@@ -191,46 +191,85 @@
           "techStack": ["PHP 8.3", "Laravel 11", "React.js", "PostgreSQL", "REST API", "Docker", "Tailwind CSS"]
         }
       },
-      "leon": {
-       "title": "MD AutoWash — Lavage à domicile",
-  "tag": "Application Web / Service à la demande",
-  "status": "En ligne / Réalisé",
-  "shortDescription": "Plateforme de réservation de lavage automobile à domicile, avec formules tarifaires claires et un programme de parrainage intégré.",
-  "modal": {
-    "overview": "MD AutoWash est une solution web conçue pour un service de lavage de voitures à domicile en RDC. Elle permet aux clients de découvrir les formules, réserver facilement et profiter d’un système de parrainage rémunérateur, le tout accessible comme une application installable (PWA).",
-    "stats": [
-      { "value": "6", "label": "Formules de lavage" },
-      { "value": "10$–50$", "label": "Tarifs flexibles" },
-      { "value": "100%", "label": "À domicile" }
-    ],
-    "features": [
-      {
-        "title": "Catalogue de formules",
-        "description": "6 offres claires (Express, Basique, Standard, Premium, VIP, Confort) avec prix et prestations détaillées."
+           "leon": {
+        "title": "MD AutoWash — Lavage à domicile",
+        "tag": "Application Web / Service à la demande",
+        "status": "En ligne / Réalisé",
+        "shortDescription": "Plateforme de réservation de lavage automobile à domicile, avec formules tarifaires claires et un programme de parrainage intégré.",
+        "modal": {
+          "overview": "MD AutoWash est une solution web conçue pour un service de lavage de voitures à domicile en RDC. Elle permet aux clients de découvrir les formules, réserver facilement et profiter d’un système de parrainage rémunérateur, le tout accessible comme une application installable (PWA).",
+          "stats": [
+            { "value": "6", "label": "Formules de lavage" },
+            { "value": "10$–50$", "label": "Tarifs flexibles" },
+            { "value": "100%", "label": "À domicile" }
+          ],
+          "features": [
+            {
+              "title": "Catalogue de formules",
+              "description": "6 offres claires (Express, Basique, Standard, Premium, VIP, Confort) avec prix et prestations détaillées."
+            },
+            {
+              "title": "Réservation en un clic",
+              "description": "Parcours simple pour choisir une formule et confirmer via QR code ou contact direct."
+            },
+            {
+              "title": "Programme de parrainage",
+              "description": "Système de récompenses (10 % à 60 %) selon le type de lavage et le nombre de clients parrainés, même sans véhicule."
+            },
+            {
+              "title": "Application installable (PWA)",
+              "description": "Accessible comme une application native sur mobile : installation rapide, navigation fluide et expérience optimisée hors navigateur."
+            }
+          ],
+          "techStack": [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "PWA"
+          ]
+        }
       },
-      {
-        "title": "Réservation en un clic",
-        "description": "Parcours simple pour choisir une formule et confirmer via QR code ou contact direct."
-      },
-      {
-        "title": "Programme de parrainage",
-        "description": "Système de récompenses (10 % à 60 %) selon le type de lavage et le nombre de clients parrainés, même sans véhicule."
-      },
-      {
-        "title": "Application installable (PWA)",
-        "description": "Accessible comme une application native sur mobile : installation rapide, navigation fluide et expérience optimisée hors navigateur."
+      "bkj": {
+        "title": "BKJ Service — Traiteur & Yaourts",
+        "tag": "Site Web Commercial / Traiteur",
+        "status": "En ligne / Réalisé",
+        "shortDescription": "Site vitrine et commande pour un service traiteur à Kinshasa : mariages, anniversaires, cérémonies, plus une gamme de yaourts artisanaux commandables via WhatsApp.",
+        "modal": {
+          "overview": "BKJ Service est la plateforme web d’un traiteur basé à Kinshasa. Elle présente les services (mariages, anniversaires, fêtes), les formules de menus (Essentiel, Confort, Prestige) et permet de commander les yaourts « Yaourt na biso » avec finalisation sur WhatsApp.",
+          "stats": [
+            { "value": "100+", "label": "Événements réalisés" },
+            { "value": "3 000+", "label": "Invités servis" },
+            { "value": "5 ans", "label": "D'expérience" }
+          ],
+          "features": [
+            {
+              "title": "Services traiteur par occasion",
+              "description": "Pages dédiées mariages, anniversaires et fêtes/cérémonies, avec détails inclus et options."
+            },
+            {
+              "title": "Formules de menus",
+              "description": "Trois formules claires (Essentiel, Confort, Prestige) adaptées à la taille et au type d’événement."
+            },
+            {
+              "title": "Commande de yaourts",
+              "description": "Catalogue Yaourt na biso (150 mL à 1 L) avec panier et envoi de commande préremplie sur WhatsApp."
+            },
+            {
+              "title": "Devis et contact WhatsApp",
+              "description": "Parcours simple pour demander un devis ou écrire directement sur WhatsApp, sans paiement en ligne."
+            }
+          ],
+          "techStack": [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "i18n (FR/EN)"
+          ]
+        }
       }
-    ],
-    "techStack": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "PWA"
-    ]
-  }
-}
-}
+    }
   },
   "skills": {
     "eyebrow": "Stack Technique",

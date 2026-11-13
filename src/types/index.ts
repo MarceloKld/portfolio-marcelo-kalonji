@@ -29,7 +29,7 @@ export type ExperienceMeta = {
 
 // Les 4 identifiants doivent correspondre EXACTEMENT aux clés
 // utilisées dans fr.json / en.json sous "projects.items.<id>"
-export type ProjectId = "unikin" | "kinalert" | "kimia" | "leon";
+export type ProjectId = "unikin" | "kinalert" | "kimia" | "leon" | "bkj";
 
 export type ProjectLink = {
   labelKey: "viewDemo" | "viewUserApp" | "viewAdminApp";
