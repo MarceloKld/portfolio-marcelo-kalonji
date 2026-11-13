@@ -27,7 +27,7 @@ export function Navbar() {
         */}
         <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-[var(--border-color)] bg-[var(--surface)] px-5 py-3 shadow-sm shadow-black/5 transition-colors duration-300">
          {/* === LOGO === */}
-<Link href="#accueil" className="flex items-center gap-3 group">
+<Link href="#accueil" className="flex items-center gap-2.5 sm:gap-3 group">
   {/* Logo Navbar arrondi, agrandi et fluide */}
   <div className="relative h-9 w-auto sm:h-11 overflow-hidden rounded-xl sm:rounded-2xl transition-transform duration-300 group-hover:scale-105">
     <img
@@ -36,7 +36,8 @@ export function Navbar() {
       className="h-full w-auto object-contain"
     />
   </div>
-  <span className="hidden text-sm font-semibold tracking-wide text-[var(--foreground)] sm:block">
+  {/* Texte visible sur mobile (text-xs) et sur PC (sm:text-sm) */}
+  <span className="text-xs sm:text-sm font-semibold tracking-wide text-[var(--foreground)]">
     Marcelo K.
   </span>
 </Link>
