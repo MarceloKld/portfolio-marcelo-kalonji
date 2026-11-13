@@ -26,16 +26,20 @@ export function Navbar() {
           Ce n'est plus conditionné au scroll — c'est permanent, comme demandé.
         */}
         <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-[var(--border-color)] bg-[var(--surface)] px-5 py-3 shadow-sm shadow-black/5 transition-colors duration-300">
-          {/* === LOGO === */}
-          <Link href="#accueil" className="flex items-center gap-2.5">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--foreground)] text-sm font-bold text-[var(--background)]">
-              MK
-            </span>
-            <span className="hidden text-sm font-semibold tracking-wide text-[var(--foreground)] sm:block">
-              Marcelo K.
-            </span>
-          </Link>
-
+         {/* === LOGO === */}
+<Link href="#accueil" className="flex items-center gap-3 group">
+  {/* Logo Navbar arrondi, agrandi et fluide */}
+  <div className="relative h-9 w-auto sm:h-11 overflow-hidden rounded-xl sm:rounded-2xl transition-transform duration-300 group-hover:scale-105">
+    <img
+      src="/images/logo/logoentete.svg"
+      alt="Marcelo K. Logo"
+      className="h-full w-auto object-contain"
+    />
+  </div>
+  <span className="hidden text-sm font-semibold tracking-wide text-[var(--foreground)] sm:block">
+    Marcelo K.
+  </span>
+</Link>
           {/* === LIENS DE NAVIGATION (desktop uniquement) === */}
           <nav className="hidden items-center gap-7 lg:flex">
             {NAV_LINKS.map((link) => (

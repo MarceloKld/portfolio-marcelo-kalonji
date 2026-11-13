@@ -42,12 +42,17 @@ export function Preloader() {
     >
       <div className="absolute h-72 w-72 rounded-full bg-[var(--accent)]/10 blur-[100px]" />
 
-      <div
-        style={{ animation: "letter-in 0.6s ease-out forwards" }}
-        className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-[var(--border-color)] text-lg font-bold text-[var(--foreground)] opacity-0"
-      >
-        MK
-      </div>
+<div
+  style={{ animation: "letter-in 0.6s ease-out forwards" }}
+  className="relative w-90 sm:w-126 overflow-hidden rounded-[2.5rem] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)]"
+>
+  <img
+    src="/images/logo/logopiedpage.webp"
+    alt="Logo"
+    className="h-auto w-full object-contain"
+  />
+</div>
+
 
       <div className="relative flex flex-wrap items-center justify-center px-6 text-center">
         {letters.map((letter, index) => (

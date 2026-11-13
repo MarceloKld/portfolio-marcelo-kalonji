@@ -26,27 +26,33 @@ export function Footer() {
 
       <div className="mx-auto flex max-w-6xl flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
         {/* ===== Identité ===== */}
-        <div className="max-w-sm">
-          <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--foreground)] text-sm font-bold text-[var(--background)] transition-transform duration-300 hover:scale-105">
-              MK
-            </span>
-            <span className="text-lg font-bold tracking-tight">Marcelo K.</span>
-          </div>
+<div className="max-w-sm">
+  {/* Logo arrondi, agrandi et sans fond */}
+  <div className="relative w-48 sm:w-76 overflow-hidden rounded-2xl sm:rounded-3xl shadow-[0_15px_40px_-10px_rgba(0,0,0,0.5)]">
+    <img
+      src="/images/logo/logopiedpage.webp"
+      alt="Marcelo K. Logo"
+      className="h-auto w-full object-contain"
+    />
+  </div>
 
-          <p className="mt-4 text-sm leading-relaxed text-[var(--foreground)]/60">
-            {t.footer.tagline}
-          </p>
+  <span className="mt-4 block text-lg font-bold tracking-tight text-[var(--foreground)]">
+    Marcelo K.
+  </span>
 
-          {/* Disponibilité */}
-          <div className="mt-5 flex items-center gap-2.5 text-xs text-[var(--foreground)]/60">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent)] opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--accent)]" />
-            </span>
-            {t.footer.availability}
-          </div>
-        </div>
+  <p className="mt-3 text-sm leading-relaxed text-[var(--foreground)]/60">
+    {t.footer.tagline}
+  </p>
+
+  {/* Disponibilité */}
+  <div className="mt-5 flex items-center gap-2.5 text-xs text-[var(--foreground)]/60">
+    <span className="relative flex h-2 w-2">
+      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent)] opacity-75" />
+      <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--accent)]" />
+    </span>
+    {t.footer.availability}
+  </div>
+</div>
 
         {/* ===== Navigation ===== */}
         <div>
