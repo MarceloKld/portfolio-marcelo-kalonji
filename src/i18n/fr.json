@@ -270,10 +270,50 @@
             "Tailwind CSS",
             "i18n (FR/EN)"
           ]
-        }
-      }
     }
   },
+  "lys": {
+  "title": "LY’S Beauty Touch — Salon & Spa",
+  "tag": "Site Web Commercial / Beauté",
+  "status": "En cours / Concept",
+  "shortDescription": "Concept de site vitrine et réservation pour un salon de beauté et spa à Gombe : coiffure, onglerie, épilation laser, soins et spa, avec galerie et prise de rendez-vous.",
+  "modal": {
+    "overview": "LY’S Beauty Touch est un salon de beauté et spa situé Avenue de la Justice n°54, Résidence Victor – Gombe (ouvert depuis mai 2021). Le projet vise un site professionnel avec menu de services, réservation, galerie et présentation de l’équipe, en complément de leur forte présence Facebook et Instagram.",
+    "stats": [
+      { "value": "2021", "label": "Ouverture" },
+      { "value": "Gombe", "label": "Kinshasa" },
+      { "value": "10+", "label": "Services beauté" }
+    ],
+    "features": [
+      {
+        "title": "Menu de services & tarifs",
+        "description": "Coiffure, onglerie, massage, soins de visage, maquillage, gommage, épilation laser, CryoSlim et spa, présentés clairement."
+      },
+      {
+        "title": "Réservation en ligne",
+        "description": "Parcours simple pour demander un rendez-vous, avec finalisation possible via WhatsApp ou téléphone."
+      },
+      {
+        "title": "Galerie & équipe",
+        "description": "Mise en valeur des réalisations (coiffures, ongles, soins) et présentation de l’équipe du salon."
+      },
+      {
+        "title": "Contact & localisation",
+        "description": "Adresse Gombe, téléphones, email et liens vers Facebook / Instagram pour une prise de contact rapide."
+      }
+    ],
+    "techStack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "WhatsApp"
+    ]
+    }
+  }
+}
+  
+},
   "skills": {
     "eyebrow": "Stack Technique",
     "title": "Compétences",

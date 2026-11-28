@@ -9,6 +9,7 @@ const GALLERY_COUNT = {
   kimiaa: 6,
   leoon: 5,
   bkj: 10,
+  lys: 4,
 };
 
 /**
@@ -57,4 +58,10 @@ export const PROJECTS_META: ProjectMeta[] = [
     gallery: generateGallery("bkj", GALLERY_COUNT.bkj),
     links: [{ labelKey: "viewDemo", url: "https://bkjservice.vercel.app/" }],
   },
+  {
+  id: "lys",
+  cover: "/images/projects/projet-8.webp",
+  gallery: generateGallery("lys", GALLERY_COUNT.lys),
+  links: [{ labelKey: "viewDemo", url: "https://lysbeautytouch.vercel.app/" }],
+},
 ];

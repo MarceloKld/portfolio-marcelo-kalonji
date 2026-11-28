@@ -8,7 +8,7 @@ import { PROJECTS_META } from "@/data/projects";
 import type { ProjectContent } from "@/types";
 
 const STAGGER_DELAY = 130;
-const INITIAL_VISIBLE = 5;
+const INITIAL_VISIBLE = 6;
 
 export function Projects() {
   const { t } = useLanguage();
