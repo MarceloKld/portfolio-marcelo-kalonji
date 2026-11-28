@@ -199,8 +199,11 @@ section[id] {
   z-index: 1;
 }
 
-.spotlight-card:hover::before {
-  opacity: 1;
+/* Visible uniquement sur PC (souris), pas sur tactile */
+@media (hover: hover) and (pointer: fine) {
+  .spotlight-card:hover::before {
+    opacity: 1;
+  }
 }
 
 .experience-coverflow .swiper-slide {

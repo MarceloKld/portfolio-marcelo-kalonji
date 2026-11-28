@@ -27,21 +27,22 @@ export function ProjectCard({ project, content }: ProjectCardProps) {
     <>
       <SpotlightCard
         className="glass group flex h-full flex-col overflow-hidden rounded-3xl transition-all duration-500
-                   hover:-translate-y-2 hover:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)]"
+                   lg:hover:-translate-y-2 lg:hover:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)]"
       >
         {/* Image */}
         <div className="relative aspect-video w-full overflow-hidden">
-          <Image
-            src={project.cover}
-            alt={content.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover grayscale brightness-95 transition-all duration-700 ease-out
-                       group-hover:scale-110 group-hover:grayscale-0 group-hover:brightness-100"
-          />
+         <Image
+  src={project.cover}
+  alt={content.title}
+  fill
+  sizes="(max-width: 768px) 100vw, 50vw"
+  className="object-cover transition-all duration-700 ease-out
+             lg:grayscale lg:brightness-95
+             lg:group-hover:scale-110 lg:group-hover:grayscale-0 lg:group-hover:brightness-100"
+/>
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition-opacity duration-500 lg:group-hover:opacity-100"
           />
           <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-xs font-medium text-white backdrop-blur-md transition-transform duration-300 group-hover:scale-105">
             {content.tag}
