@@ -5,6 +5,11 @@ const config: Config = {
   // plutôt que via les préférences système uniquement — nécessaire pour next-themes
   darkMode: "class",
 
+  // Hover uniquement sur appareils avec vraie souris (pas tactile)
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+  
   // Les dossiers que Tailwind doit scanner pour trouver les classes utilisées
   content: [
     "./src/app/**/*.{ts,tsx}",
